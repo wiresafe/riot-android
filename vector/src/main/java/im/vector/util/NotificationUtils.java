@@ -457,8 +457,9 @@ public class NotificationUtils {
                     }
 
                     NotificationCompat.WearableExtender wearableExtender = new NotificationCompat.WearableExtender();
+//                  message_notification_transparent changed to R.drawable.ic_wiresafe_notification
                     NotificationCompat.Action action =
-                            new NotificationCompat.Action.Builder(R.drawable.message_notification_transparent,
+                            new NotificationCompat.Action.Builder(R.drawable.ic_wiresafe_notification,
                                     message,
                                     stackBuilderTap.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT))
                                     .build();
@@ -658,8 +659,9 @@ public class NotificationUtils {
                         }
 
                         NotificationCompat.WearableExtender wearableExtender = new NotificationCompat.WearableExtender();
+//                      message_notification_transparent changed to R.drawable.ic_wiresafe_notification
                         NotificationCompat.Action action =
-                                new NotificationCompat.Action.Builder(R.drawable.message_notification_transparent,
+                                new NotificationCompat.Action.Builder(R.drawable.ic_wiresafe_notification,
                                         message,
                                         stackBuilderTap.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT))
                                         .build();
@@ -676,10 +678,10 @@ public class NotificationUtils {
     /**
      * Add the notification sound.
      *
-     * @param context the context
-     * @param builder the notification builder
+     * @param context      the context
+     * @param builder      the notification builder
      * @param isBackground true if the notification is a background one
-     * @param isBing true if the notification should play sound
+     * @param isBing       true if the notification should play sound
      */
     private static void manageNotificationSound(Context context, android.support.v7.app.NotificationCompat.Builder builder, boolean isBackground, boolean isBing) {
         @ColorInt int highlightColor = ContextCompat.getColor(context, R.color.vector_fuchsia_color);
@@ -705,7 +707,7 @@ public class NotificationUtils {
 
             // turn the screen on for 3 seconds
             if (Matrix.getInstance(VectorApp.getInstance()).getSharedGCMRegistrationManager().isScreenTurnedOn()) {
-                PowerManager pm = (PowerManager)VectorApp.getInstance().getSystemService(Context.POWER_SERVICE);
+                PowerManager pm = (PowerManager) VectorApp.getInstance().getSystemService(Context.POWER_SERVICE);
                 PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK | PowerManager.ACQUIRE_CAUSES_WAKEUP, "manageNotificationSound");
                 wl.acquire(3000);
                 wl.release();
@@ -804,7 +806,7 @@ public class NotificationUtils {
             builder.setGroup(context.getString(R.string.riot_app_name));
             builder.setGroupSummary(true);
 
-            builder.setDeleteIntent(PendingIntent.getBroadcast(context.getApplicationContext(), 0,  new Intent(context.getApplicationContext(), DismissNotificationReceiver.class), PendingIntent.FLAG_UPDATE_CURRENT));
+            builder.setDeleteIntent(PendingIntent.getBroadcast(context.getApplicationContext(), 0, new Intent(context.getApplicationContext(), DismissNotificationReceiver.class), PendingIntent.FLAG_UPDATE_CURRENT));
 
             try {
                 addTextStyle(context, builder, eventToNotify, isInvitationEvent, notifiedEventsByRoomId);
@@ -821,7 +823,8 @@ public class NotificationUtils {
                 }
             }
 
-            builder.setSmallIcon(R.drawable.message_notification_transparent);
+//          message_notification_transparent changed to R.drawable.ic_wiresafe_notification
+            builder.setSmallIcon(R.drawable.ic_wiresafe_notification);
             manageNotificationSound(context, builder, isBackground, bingRule.isDefaultNotificationSound(bingRule.notificationSound()));
 
             return builder.build();
@@ -866,7 +869,8 @@ public class NotificationUtils {
             stackBuilderTap.addNextIntent(roomIntentTap);
             builder.setContentIntent(stackBuilderTap.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT));
 
-            builder.setSmallIcon(R.drawable.message_notification_transparent);
+//          message_notification_transparent changed to R.drawable.ic_wiresafe_notification
+            builder.setSmallIcon(R.drawable.ic_wiresafe_notification);
 
             manageNotificationSound(context, builder, false, bingRule.isDefaultNotificationSound(bingRule.notificationSound()));
 

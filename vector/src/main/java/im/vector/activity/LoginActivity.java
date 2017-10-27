@@ -33,6 +33,7 @@ import android.os.Handler;
 import android.os.Parcelable;
 import android.preference.PreferenceManager;
 import android.support.annotation.ColorInt;
+import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 import android.support.design.widget.TextInputEditText;
 import android.support.v4.content.ContextCompat;
@@ -49,6 +50,14 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GetTokenResult;
 
 import org.matrix.androidsdk.HomeServerConnectionConfig;
 import org.matrix.androidsdk.MXSession;
@@ -288,6 +297,7 @@ public class LoginActivity extends MXCActionBarActivity implements RegistrationM
     private PhoneNumberHandler mRegistrationPhoneNumberHandler;
 
     private Dialog mCurrentDialog;
+    FirebaseAuth mAuth;
 
     @Override
     protected void onDestroy() {
@@ -347,6 +357,7 @@ public class LoginActivity extends MXCActionBarActivity implements RegistrationM
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         if (null == getIntent()) {
             Log.d(LOG_TAG, "## onCreate(): IN with no intent");
         } else {
@@ -460,6 +471,7 @@ public class LoginActivity extends MXCActionBarActivity implements RegistrationM
             @Override
             public void onClick(View view) {
                 onLoginClick();
+//                testLog();
             }
         });
 
@@ -468,6 +480,7 @@ public class LoginActivity extends MXCActionBarActivity implements RegistrationM
             @Override
             public void onClick(View view) {
                 onRegisterClick(true);
+//                testREG();
             }
         });
 
@@ -623,6 +636,9 @@ public class LoginActivity extends MXCActionBarActivity implements RegistrationM
 
         // set the handler used by the register to poll the server response
         mHandler = new Handler(getMainLooper());
+
+
+        mAuth = FirebaseAuth.getInstance();
     }
 
     /**
@@ -630,15 +646,12 @@ public class LoginActivity extends MXCActionBarActivity implements RegistrationM
      */
     private String getHomeServerUrl() {
         String url = getResources().getString(R.string.default_hs_server_url);
-
         if (mUseCustomHomeServersCheckbox.isChecked()) {
             url = mHomeServerText.getText().toString().trim();
-
             if (url.endsWith("/")) {
                 url = url.substring(0, url.length() - 1);
             }
         }
-
         return url;
     }
 
@@ -698,17 +711,13 @@ public class LoginActivity extends MXCActionBarActivity implements RegistrationM
         if (!TextUtils.equals(mHomeServerUrl, getHomeServerUrl())) {
             mHomeServerUrl = getHomeServerUrl();
             mRegistrationResponse = null;
-
             // invalidate the current homeserver config
             mHomeserverConnectionConfig = null;
             // the account creation is not always supported so ensure that the dedicated button is always displayed.
             mRegisterButton.setVisibility(View.VISIBLE);
-
             checkFlows();
-
             return true;
         }
-
         return false;
     }
 
@@ -747,6 +756,90 @@ public class LoginActivity extends MXCActionBarActivity implements RegistrationM
 
         // check if the login supports the server flows
         checkFlows();
+    }
+
+    private void testLog() {
+        Log.e("--sa--", "inside log");
+        if (mAuth.getCurrentUser() != null) {
+            Log.e("--sa--", "inside 1");
+            String email = "test@test.com";
+            String pwd = "test123";
+
+            mAuth.signInWithEmailAndPassword(email, pwd).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
+                        final FirebaseUser user = mAuth.getCurrentUser();
+                        final Task<GetTokenResult> a = user.getIdToken(true);
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Log.e("--sa--", "success " + a.getResult().getToken());
+
+                                        test(a.getResult().getToken(), user);
+                                    }
+                                });
+                            }
+                        },5000);
+                    } else {
+                        Log.e("--sa--", "failure");
+                    }
+                }
+            }).addOnFailureListener(this, new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Log.e("-sa-", e.getMessage(), e);
+                }
+            });
+        } else {
+            FirebaseUser user = mAuth.getCurrentUser();
+            Task<GetTokenResult> a = user.getToken(true);
+            Log.e("--sa--", "success else " + a.getResult().getToken());
+        }
+    }
+
+    private void test(String token, FirebaseUser user) {
+        LoginRestClient client = new LoginRestClient(getHsConfig());
+        String deviceName = getString(R.string.login_mobile_device);
+
+        final SimpleApiCallback<Credentials> loginCallback = new SimpleApiCallback<Credentials>() {
+            @Override
+            public void onSuccess(Credentials credentials) {
+                Log.e("--123","1");
+            }
+
+            @Override
+            public void onNetworkError(final Exception e) {
+                Log.e("--123","2");
+            }
+
+            @Override
+            public void onUnexpectedError(Exception e) {
+                Log.e("--123","3");
+            }
+
+            @Override
+            public void onMatrixError(MatrixError e) {
+                Log.e("--123","4 "+ e.error);
+            }
+        };
+
+        client.loginWithToken(user.getEmail(), token, deviceName, loginCallback);
+    }
+
+    private void testREG() {
+        Log.e("--sa--", "inside reg");
+        String email = "test@test.com";
+        String pwd = "test123";
+        mAuth.createUserWithEmailAndPassword(email, pwd).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+
+            }
+        });
     }
 
     /**
@@ -1577,7 +1670,7 @@ public class LoginActivity extends MXCActionBarActivity implements RegistrationM
             return;
         }
 
-        if (TextUtils.isEmpty(username) && !mLoginPhoneNumberHandler.isPhoneNumberValidForCountry()){
+        if (TextUtils.isEmpty(username) && !mLoginPhoneNumberHandler.isPhoneNumberValidForCountry()) {
             // Check if phone number is empty or just invalid
             if (mLoginPhoneNumberHandler.getPhoneNumber() != null) {
                 Toast.makeText(this, R.string.auth_invalid_phone, Toast.LENGTH_SHORT).show();
@@ -1941,6 +2034,7 @@ public class LoginActivity extends MXCActionBarActivity implements RegistrationM
 
     /**
      * Sanitize an URL
+     *
      * @param url the url to sanitize
      * @return the sanitized url
      */
@@ -1949,7 +2043,7 @@ public class LoginActivity extends MXCActionBarActivity implements RegistrationM
             return url;
         }
 
-        return url.replaceAll("\\s","");
+        return url.replaceAll("\\s", "");
     }
 
     /**
@@ -2233,7 +2327,7 @@ public class LoginActivity extends MXCActionBarActivity implements RegistrationM
      * Submit the phone number token entered by the user
      *
      * @param token code entered by the user
-     * @param pid phone number pid
+     * @param pid   phone number pid
      */
     private void submitPhoneNumber(final String token, final ThreePid pid) {
         if (TextUtils.isEmpty(token)) {

@@ -198,6 +198,14 @@
         <item name="android:textColorHint">?attr/activity_bottom_gradient_color</item>
     </style>
 
+    <!-- WireTransfer activity -->
+    <style name="WireTransferActivityTheme" parent="AppTheme.NoActionBar">
+        <item name="editTextColor">@android:color/white</item>
+        <item name="android:editTextColor">@android:color/white</item>
+        <item name="android:textColorHint">?attr/activity_bottom_gradient_color</item>
+        <item name="homeAsUpIndicator">@drawable/back_button_image</item>
+    </style>
+
     <!-- call activity -->
     <style name="CallActivityTheme" parent="AppTheme">
         <item name="android:windowNoTitle">true</item>
@@ -635,6 +643,14 @@
         <item name="listPreferredItemPaddingRight">24dip</item>
 
         <item name="android:listDivider">@null</item>
+    </style>
+
+    <style name="EditTextHint" parent="TextAppearance.AppCompat">
+        <item name="colorAccent">@android:color/white</item>
+        <item name="android:textColorHint">#888888</item>
+        <item name="colorControlNormal">#888888</item>
+        <item name="colorControlActivated">#888888</item>
+        <item name="colorControlHighlight">#888888</item>
     </style>
 
 </resources>

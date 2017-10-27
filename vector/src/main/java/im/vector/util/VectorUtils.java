@@ -581,6 +581,11 @@ public class VectorUtils {
             return;
         }
 
+        if (avatarUrl != null)
+            Log.e("avatarUrl", avatarUrl);
+        else
+            Log.e("avatarUrl", "is null");
+
         // reset the imageView tag
         imageView.setTag(null);
 

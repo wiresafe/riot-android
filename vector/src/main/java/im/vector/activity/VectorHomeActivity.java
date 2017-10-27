@@ -111,6 +111,7 @@ import im.vector.fragments.FavouritesFragment;
 import im.vector.fragments.HomeFragment;
 import im.vector.fragments.PeopleFragment;
 import im.vector.fragments.RoomsFragment;
+import im.vector.fragments.WireTransferFragment;
 import im.vector.receiver.VectorUniversalLinkReceiver;
 import im.vector.services.EventStreamService;
 import im.vector.util.BugReporter;
@@ -164,6 +165,7 @@ public class VectorHomeActivity extends RiotAppCompatActivity implements SearchV
     private static final String TAG_FRAGMENT_FAVOURITES = "TAG_FRAGMENT_FAVOURITES";
     private static final String TAG_FRAGMENT_PEOPLE = "TAG_FRAGMENT_PEOPLE";
     private static final String TAG_FRAGMENT_ROOMS = "TAG_FRAGMENT_ROOMS";
+    private static final String TAG_FRAGMENT_WIRE_TRANSFER = "TAG_FRAGMENT_WIRE_TRANSFER";
 
     // Key used to restore the proper fragment after orientation change
     private static final String CURRENT_MENU_ID = "CURRENT_MENU_ID";
@@ -527,6 +529,8 @@ public class VectorHomeActivity extends RiotAppCompatActivity implements SearchV
         if (null != mFloatingActionButton) {
             if (mCurrentMenuId == R.id.bottom_action_favourites) {
                 mFloatingActionButton.setVisibility(View.GONE);
+            } else if (mCurrentMenuId == R.id.bottom_action_wire_transfer) {
+                mFloatingActionButton.setVisibility(View.GONE);
             } else {
                 mFloatingActionButton.show();
             }
@@ -822,6 +826,7 @@ public class VectorHomeActivity extends RiotAppCompatActivity implements SearchV
                     fragment = HomeFragment.newInstance();
                 }
                 mCurrentFragmentTag = TAG_FRAGMENT_HOME;
+                mSearchView.setVisibility(View.VISIBLE);
                 mSearchView.setQueryHint(getString(R.string.home_filter_placeholder_home));
                 break;
             case R.id.bottom_action_favourites:
@@ -831,7 +836,19 @@ public class VectorHomeActivity extends RiotAppCompatActivity implements SearchV
                     fragment = FavouritesFragment.newInstance();
                 }
                 mCurrentFragmentTag = TAG_FRAGMENT_FAVOURITES;
+                mSearchView.setVisibility(View.VISIBLE);
                 mSearchView.setQueryHint(getString(R.string.home_filter_placeholder_favorites));
+                break;
+            case R.id.bottom_action_wire_transfer:
+                Log.d(LOG_TAG, "onNavigationItemSelected WIRE TRANSFER");
+                fragment = mFragmentManager.findFragmentByTag(TAG_FRAGMENT_WIRE_TRANSFER);
+                if (fragment == null) {
+                    fragment = WireTransferFragment.newInstance();
+                }
+                mCurrentFragmentTag = TAG_FRAGMENT_WIRE_TRANSFER;
+                mSearchView.setVisibility(View.GONE);
+                if (getSupportActionBar() != null)
+                    getSupportActionBar().setTitle("Wire Transfer");
                 break;
             case R.id.bottom_action_people:
                 Log.d(LOG_TAG, "onNavigationItemSelected PEOPLE");
@@ -840,6 +857,7 @@ public class VectorHomeActivity extends RiotAppCompatActivity implements SearchV
                     fragment = PeopleFragment.newInstance();
                 }
                 mCurrentFragmentTag = TAG_FRAGMENT_PEOPLE;
+                mSearchView.setVisibility(View.VISIBLE);
                 mSearchView.setQueryHint(getString(R.string.home_filter_placeholder_people));
                 break;
             case R.id.bottom_action_rooms:
@@ -849,6 +867,7 @@ public class VectorHomeActivity extends RiotAppCompatActivity implements SearchV
                     fragment = RoomsFragment.newInstance();
                 }
                 mCurrentFragmentTag = TAG_FRAGMENT_ROOMS;
+                mSearchView.setVisibility(View.VISIBLE);
                 mSearchView.setQueryHint(getString(R.string.home_filter_placeholder_rooms));
                 break;
         }
@@ -866,6 +885,7 @@ public class VectorHomeActivity extends RiotAppCompatActivity implements SearchV
 
         // don't display the fab for the favorites tab
         mFloatingActionButton.setVisibility((item.getItemId() != R.id.bottom_action_favourites) ? View.VISIBLE : View.GONE);
+//        mFloatingActionButton.setVisibility((item.getItemId() != R.id.bottom_action_wire_transfer) ? View.VISIBLE : View.GONE);
 
         mCurrentMenuId = item.getItemId();
 
@@ -881,6 +901,7 @@ public class VectorHomeActivity extends RiotAppCompatActivity implements SearchV
             }
         }
     }
+
     /**
      * Update UI colors to match the selected tab
      *
@@ -934,7 +955,7 @@ public class VectorHomeActivity extends RiotAppCompatActivity implements SearchV
 
         addUnreadBadges();
 
-		// init the search view
+        // init the search view
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         // Remove unwanted left margin
         LinearLayout searchEditFrame = (LinearLayout) mSearchView.findViewById(R.id.search_edit_frame);
@@ -1233,7 +1254,8 @@ public class VectorHomeActivity extends RiotAppCompatActivity implements SearchV
     private void onFloatingButtonClick() {
         // ignore any action if there is a pending one
         if (!isWaitingViewVisible()) {
-            CharSequence items[] = new CharSequence[]{getString(R.string.room_recents_start_chat), getString(R.string.room_recents_create_room), getString(R.string.room_recents_join_room)};
+            CharSequence items[] = new CharSequence[]{getString(R.string.room_recents_start_chat), getString(R.string.room_recents_create_room),
+                    getString(R.string.room_recents_join_room)/*, getString(R.string.room_recents_wire_transfer)*/};
             mFabDialog = new AlertDialog.Builder(this)
                     .setSingleChoiceItems(items, 0, new DialogInterface.OnClickListener() {
                         @Override
@@ -1243,7 +1265,7 @@ public class VectorHomeActivity extends RiotAppCompatActivity implements SearchV
                                 invitePeopleToNewRoom();
                             } else if (1 == n) {
                                 createRoom();
-                            } else {
+                            } else if (2 == n) {
                                 joinARoom();
                             }
                         }

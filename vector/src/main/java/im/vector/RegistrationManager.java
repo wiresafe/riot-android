@@ -307,7 +307,7 @@ public class RegistrationManager {
                 @Override
                 public void onRegistrationFailed(String message) {
                     if (TextUtils.equals(ERROR_MISSING_STAGE, message)
-                            && (mPhoneNumber == null || isCompleted(LoginRestClient.LOGIN_FLOW_TYPE_MSISDN))){
+                            && (mPhoneNumber == null || isCompleted(LoginRestClient.LOGIN_FLOW_TYPE_MSISDN))) {
                         if (mEmail != null && !isCompleted(LoginRestClient.LOGIN_FLOW_TYPE_EMAIL_IDENTITY)) {
                             attemptRegistration(context, listener);
                         } else {

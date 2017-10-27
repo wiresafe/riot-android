@@ -101,6 +101,7 @@ import im.vector.VectorApp;
 import im.vector.ViewedRoomTracker;
 import im.vector.fragments.VectorMessageListFragment;
 import im.vector.fragments.VectorUnknownDevicesFragment;
+import im.vector.fragments.WireTransferFragment;
 import im.vector.services.EventStreamService;
 import im.vector.util.NotificationUtils;
 import im.vector.util.PreferencesManager;
@@ -1116,6 +1117,45 @@ public class VectorRoomActivity extends MXCActionBarActivity implements MatrixMe
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+
+        if (getIntent().hasExtra(WireTransferFragment.WIRE_TRANSFER)) {
+            sendWireTransfer(getIntent().getStringExtra(WireTransferFragment.WIRE_TRANSFER));
+        }
+    }
+
+    private void sendWireTransfer(String wireTransfer) {
+        if (mIsMarkDowning) {
+            return;
+        }
+
+        // ensure that a message is not sent twice
+        // markdownToHtml seems being slow in some cases
+        mSendButtonLayout.setEnabled(false);
+        mIsMarkDowning = true;
+
+        VectorApp.markdownToHtml(wireTransfer.trim(), new VectorMarkdownParser.IVectorMarkdownParserListener() {
+            @Override
+            public void onMarkdownParsed(final String text, final String HTMLText) {
+                VectorRoomActivity.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        mSendButtonLayout.setEnabled(true);
+                        mIsMarkDowning = false;
+                        enableActionBarHeader(HIDE_ACTION_BAR_HEADER);
+                        sendMessage(text, TextUtils.equals(text, HTMLText) ? null : HTMLText, Message.FORMAT_MATRIX_HTML);
+                        Log.e("--sa--", "text =" + text + " " + (TextUtils.equals(text, HTMLText) ? "null" : HTMLText) + " " + Message.FORMAT_MATRIX_HTML);
+                        if (mRoom != null)
+                            Log.e("--sa--", mRoom.getRoomId());
+                        mEditText.setText("");
+                    }
+                });
+            }
+        });
+    }
+
+    @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
         // Always call the superclass so it can save the view hierarchy state
         super.onSaveInstanceState(savedInstanceState);
@@ -1901,6 +1941,9 @@ public class VectorRoomActivity extends MXCActionBarActivity implements MatrixMe
                         mIsMarkDowning = false;
                         enableActionBarHeader(HIDE_ACTION_BAR_HEADER);
                         sendMessage(text, TextUtils.equals(text, HTMLText) ? null : HTMLText, Message.FORMAT_MATRIX_HTML);
+                        Log.e("--sa--", "text =" + text + " " + (TextUtils.equals(text, HTMLText) ? "null" : HTMLText) + " " + Message.FORMAT_MATRIX_HTML);
+                        if (mRoom != null)
+                            Log.e("--sa--", mRoom.getRoomId());
                         mEditText.setText("");
                     }
                 });

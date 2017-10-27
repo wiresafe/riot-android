@@ -6,8 +6,8 @@
         tools:replace="allowBackup,label"
         android:allowBackup="false"
         android:name="im.vector.VectorApp"
-        android:icon="@drawable/logo"
-        android:logo="@drawable/logo"
+        android:icon="@mipmap/ic_launcher"
+        android:logo="@mipmap/ic_launcher"
         android:label="@string/riot_app_name"
         android:largeHeap="true"
         android:theme="@style/AppTheme" >

@@ -152,6 +152,7 @@ dependencies {
 
     compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.+'
 
+
     compile 'com.googlecode.libphonenumber:libphonenumber:8.0.1'
 
     /************* Matrix SDK management **************/
@@ -180,6 +181,7 @@ dependencies {
     compile(name: 'react-native-vector-icons', ext: 'aar')
     compile(name: 'react-native-webrtc', ext: 'aar')
     compile(name: 'react-native', ext: 'aar')
+    compile(name: 'material-spinner-1.2.1', ext: 'aar')
 
     // use the matrix SDK as a part of the project
     // you have to uncomment some lines in settings.gradle
@@ -188,14 +190,20 @@ dependencies {
     /************* flavors management **************/
 
     // app flavor only
-    appCompile 'com.google.firebase:firebase-core:10.2.1'
-    appCompile 'com.google.firebase:firebase-messaging:10.2.1'
-    appCompile 'com.google.android.gms:play-services-analytics:10.2.1'
+    appCompile 'com.google.firebase:firebase-core:11.4.2'
+    appCompile 'com.google.firebase:firebase-messaging:11.4.2'
+    appCompile 'com.google.android.gms:play-services-analytics:11.4.2'
+
 
     // fdroid flavor only
+
+    compile 'com.google.firebase:firebase-auth:11.4.2'
 }
 
 
 if (!getGradle().getStartParameter().getTaskRequests().toString().contains("fdroid")) {
     apply plugin: 'com.google.gms.google-services'
 }
+
+// ADD THIS AT THE BOTTOM
+apply plugin: 'com.google.gms.google-services'

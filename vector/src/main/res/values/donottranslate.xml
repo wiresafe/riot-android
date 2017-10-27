@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="riot_app_name">Riot.im</string>
+    <!--<string name="riot_app_name">Riot.im</string>-->
+    <string name="riot_app_name">Wiresafe</string>
 
     <!-- server urls -->
     <string name="vector_im_server_url" translatable="false">https://vector.im</string>
@@ -32,4 +33,15 @@
         <item>@string/dark_theme</item>
         <item>@string/black_them</item>
     </string-array>
+
+
+    <string name="room_recents_wire_transfer">Wire transfer</string>
+    <string name="hint_bank_name">Bank Name</string>
+    <string name="hint_bank_address">Bank Address</string>
+    <string name="hint_account_owner_name">Account Owner Name</string>
+    <string name="hint_bank_routing_number">Bank Routing Number</string>
+    <string name="hint_bank_account_number">Bank Account Number</string>
+    <string name="alert_should_be_member_of_a_room_for_continue">Should be member of a room for continue</string>
+    <string name="submit">Submit</string>
+    <string name="reset">Reset</string>
 </resources>

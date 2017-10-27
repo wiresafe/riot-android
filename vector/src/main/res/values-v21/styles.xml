@@ -1,2 +1,9 @@
 <resources>
+    <!-- WireTransfer activity -->
+    <style name="WireTransferActivityTheme" parent="AppTheme.NoActionBar">
+        <item name="editTextColor">@android:color/white</item>
+        <item name="android:editTextColor">@android:color/white</item>
+        <item name="android:textColorHint">?attr/activity_bottom_gradient_color</item>
+        <item name="android:homeAsUpIndicator">@drawable/back_button_image</item>
+    </style>
 </resources>
