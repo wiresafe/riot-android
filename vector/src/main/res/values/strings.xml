@@ -161,7 +161,8 @@
     <string name="auth_add_email_phone_message">"Add an email address and/or a phone number to your account to let users discover you.\n\nEmail address will also let you reset your password."</string>
     <string name="auth_add_email_and_phone_message">"Add an email address and a phone number to your account to let users discover you.\n\nEmail address will also let you reset your password."</string>
     <string name="auth_email_placeholder">Email address</string>
-    <string name="auth_opt_email_placeholder">Email address (optional)</string>
+    <string name="auth_opt_email_placeholder">Email address (Required)</string>
+    <!--<string name="auth_opt_email_placeholder">Email address (optional)</string>-->
     <string name="auth_phone_number_placeholder">Phone number</string>
     <string name="auth_opt_phone_number_placeholder">Phone number (optional)</string>
     <string name="auth_repeat_password_placeholder">Repeat password</string>

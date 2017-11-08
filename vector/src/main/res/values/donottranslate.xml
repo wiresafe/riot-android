@@ -44,4 +44,7 @@
     <string name="alert_should_be_member_of_a_room_for_continue">Should be member of a room for continue</string>
     <string name="submit">Submit</string>
     <string name="reset">Reset</string>
+    <string name="email_required">Email required</string>
+    <string name="auth_invalid_email_or_password">Invalid email or password</string>
+    <string name="phone_number_verification_failed">Phone number verification failed</string>
 </resources>

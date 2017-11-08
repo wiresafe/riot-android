@@ -15,7 +15,7 @@
             android:layout_height="match_parent"
             android:background="?attr/riot_primary_background_color">
 
-            <im.vector.view.VectorCircularImageView
+            <venturetrac.wiresafe.view.VectorCircularImageView
                 android:id="@+id/call_other_member"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
@@ -90,7 +90,7 @@
                 android:src="@drawable/ic_material_mic_off_grey" />
         </LinearLayout>
 
-        <im.vector.view.VectorPendingCallView
+        <venturetrac.wiresafe.view.VectorPendingCallView
             android:id="@+id/header_pending_callview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

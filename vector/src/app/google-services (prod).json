@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1039382416339",
+    "firebase_url": "https://wiresafe-project.firebaseio.com",
+    "project_id": "wiresafe-project",
+    "storage_bucket": "wiresafe-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1039382416339:android:315b6044e99ff08a",
+        "android_client_info": {
+          "package_name": "com.wiresafe.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1039382416339-mptg19voo84i5mn7bbggq4k185h9pc8k.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "1039382416339-omt8nof5spbbl71imd3dd21stq55i2n1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuVzQVJSVES0IWirDsGgNgGjqWvZnrmPk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

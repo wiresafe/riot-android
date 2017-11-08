@@ -113,21 +113,21 @@
 
     </LinearLayout>
 
-    <im.vector.view.VectorPendingCallView
+    <venturetrac.wiresafe.view.VectorPendingCallView
         android:id="@+id/room_pending_call_view"
         android:layout_below="@+id/room_preview_info_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone"/>
 
-    <im.vector.view.VectorOngoingConferenceCallView
+    <venturetrac.wiresafe.view.VectorOngoingConferenceCallView
         android:id="@+id/room_ongoing_conference_call_view"
         android:layout_below="@+id/room_pending_call_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone"/>
 
-    <im.vector.view.ActiveWidgetsBanner
+    <venturetrac.wiresafe.view.ActiveWidgetsBanner
         android:id="@+id/room_pending_widgets_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -276,7 +276,7 @@
 
                     </RelativeLayout>
 
-                    <im.vector.view.VectorAutoCompleteTextView
+                    <venturetrac.wiresafe.view.VectorAutoCompleteTextView
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"

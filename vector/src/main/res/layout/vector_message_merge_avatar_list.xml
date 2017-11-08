@@ -4,14 +4,14 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal">
 
-    <im.vector.view.VectorCircularImageView
+    <venturetrac.wiresafe.view.VectorCircularImageView
         android:id="@+id/mels_list_avatar_1"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:scaleType="centerCrop"
         android:adjustViewBounds="true"/>
 
-    <im.vector.view.VectorCircularImageView
+    <venturetrac.wiresafe.view.VectorCircularImageView
         android:id="@+id/mels_list_avatar_2"
         android:layout_width="20dp"
         android:layout_height="20dp"
@@ -19,7 +19,7 @@
         android:scaleType="centerCrop"
         android:adjustViewBounds="true"/>
 
-    <im.vector.view.VectorCircularImageView
+    <venturetrac.wiresafe.view.VectorCircularImageView
         android:id="@+id/mels_list_avatar_3"
         android:layout_width="20dp"
         android:layout_height="20dp"
@@ -27,7 +27,7 @@
         android:scaleType="centerCrop"
         android:adjustViewBounds="true"/>
 
-    <im.vector.view.VectorCircularImageView
+    <venturetrac.wiresafe.view.VectorCircularImageView
         android:id="@+id/mels_list_avatar_4"
         android:layout_width="20dp"
         android:layout_height="20dp"
@@ -35,7 +35,7 @@
         android:scaleType="centerCrop"
         android:adjustViewBounds="true"/>
 
-    <im.vector.view.VectorCircularImageView
+    <venturetrac.wiresafe.view.VectorCircularImageView
         android:id="@+id/mels_list_avatar_5"
         android:layout_width="20dp"
         android:layout_height="20dp"

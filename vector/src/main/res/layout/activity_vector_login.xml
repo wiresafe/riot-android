@@ -139,10 +139,18 @@
                         android:id="@+id/login_user_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/auth_user_id_placeholder"
+                        android:hint="@string/settings_email_address"
                         android:inputType="text"
                         android:maxLines="1"
                         android:nextFocusDown="@+id/login_password" />
+                    <!--<EditText-->
+                    <!--android:id="@+id/login_user_name"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:hint="@string/auth_user_id_placeholder"-->
+                    <!--android:inputType="text"-->
+                    <!--android:maxLines="1"-->
+                    <!--android:nextFocusDown="@+id/login_password" />-->
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -339,8 +347,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:gravity="center_vertical"
                             android:layout_toRightOf="@+id/display_server_url_expand_checkbox"
+                            android:gravity="center_vertical"
                             android:text="@string/auth_use_server_options" />
 
                     </RelativeLayout>
@@ -392,7 +400,8 @@
                     android:paddingTop="5dp"
                     android:text="@string/auth_forgot_password"
                     android:textColor="@color/vector_green_color"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:visibility="gone" />
             </LinearLayout>
 
             <TextView

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "103697915413",
+    "firebase_url": "https://mobanalytics-31e55.firebaseio.com",
+    "project_id": "mobanalytics-31e55",
+    "storage_bucket": "mobanalytics-31e55.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:103697915413:android:448c9b63161abc9c",
+        "android_client_info": {
+          "package_name": "im.vector.alpha"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "103697915413-jarb9rjd6452o6rlm02sji6od4esujrd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_bDxAsNEUa43kt6A0AwA5RX9AwQRwPMA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
