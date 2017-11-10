@@ -76,7 +76,7 @@ A kulcsok mentéséhez kijelentkezés előtt válaszd az exportálás opciót.</
     <string name="local_address_book_header">Helyi címjegyzék</string>
     <string name="matrix_only_filter">Csak Matrix névjegyek</string>
     <string name="no_conversation_placeholder">Nincsenek beszélgetések</string>
-    <string name="no_contact_access_placeholder">Nem engedélyezted a Riotnak a helyi névjegyekhez való hozzáférést</string>
+    <string name="no_contact_access_placeholder">Nem engedélyezted a Wiresafe-nak a helyi névjegyekhez való hozzáférést</string>
     <string name="no_result_placeholder">Nincsenek találatok</string>
 
     <string name="rooms_header">Szobák</string>
@@ -244,26 +244,26 @@ Elnézést a kellemetlenségért.</string>
     <string name="media_picker_cannot_record_video">Videó felvevése sikertelen</string>
 
     <string name="permissions_rationale_popup_title">Információ</string>
-    <string name="permissions_rationale_msg_storage">A Riot-nak szüksége van a fotó és videó könyvtáradnak elérési engedélyéhez a csatolmányok küldéséhez.
+    <string name="permissions_rationale_msg_storage">A Wiresafe-nak szüksége van a fotó és videó könyvtáradnak elérési engedélyéhez a csatolmányok küldéséhez.
 
 Kérlek engedélyezd a hozzáférést a következő felugró ablakban, hogy tudj fájlokat küldeni a telefonodról.</string>
     <string name="permissions_rationale_msg_camera">Riot-nak engedély szükséges a kamerád eléréséhez, hogy tudj képeket készíteni és videó hívásokat.</string>
     <string name="permissions_rationale_msg_camera_explanation">
 
 Kérlek engedélyezd a hozzáférést a következő felugró ablakban, hogy tudj hívást kezdeményezni.</string>
-    <string name="permissions_rationale_msg_record_audio">A Riot-nak engedély szükséges a mikrofonod eléréséhez, hogy tudj hanghívást kezdeményezni.</string>
+    <string name="permissions_rationale_msg_record_audio">A Wiresafe-nak engedély szükséges a mikrofonod eléréséhez, hogy tudj hanghívást kezdeményezni.</string>
     <string name="permissions_rationale_msg_record_audio_explanation">
 
 Kérlek engedélyezd a hozzáférést a következő felugró ablakban, hogy tudj hívást kezdeményezni.</string>
-    <string name="permissions_rationale_msg_camera_and_audio">"A Riot-nak engedély szükséges a mikrofonod  és kamerád eléréséhez, hogy tudj videóhívást kezdeményezni.
+    <string name="permissions_rationale_msg_camera_and_audio">"A Wiresafe-nak engedély szükséges a mikrofonod  és kamerád eléréséhez, hogy tudj videóhívást kezdeményezni.
 
 Kérlek engedélyezd a hozzáférést a következő felugró ablakban, hogy tudj hívást kezdeményezni."</string>
-    <string name="permissions_rationale_msg_contacts">A Riot-nak engedély szükséges a címjegyzék-kapcsolatok eléréséhez, hogy tudj Matrix felhasználókat találni e-mail és telefonszám alapján.
+    <string name="permissions_rationale_msg_contacts">A Wiresafe-nak engedély szükséges a címjegyzék-kapcsolatok eléréséhez, hogy tudj Matrix felhasználókat találni e-mail és telefonszám alapján.
 
-Kérlek engedélyezd a hozzáférést a következő felugró ablakban, hogy tudj címjegyzék-kapcsolatok találni a Riot-tal.</string>
-    <string name="permissions_msg_contacts_warning_other_androids">A Riot-nak engedély szükséges a címjegyzék-kapcsolatok eléréséhez, hogy tudj Matrix felhasználókat találni e-mail és telefonszám alapján.
+Kérlek engedélyezd a hozzáférést a következő felugró ablakban, hogy tudj címjegyzék-kapcsolatok találni a Wiresafe-tal.</string>
+    <string name="permissions_msg_contacts_warning_other_androids">A Wiresafe-nak engedély szükséges a címjegyzék-kapcsolatok eléréséhez, hogy tudj Matrix felhasználókat találni e-mail és telefonszám alapján.
 
-Engedélyezed Riot-nak a hozzáférést kapcsolataidhoz?</string>
+Engedélyezed Wiresafe-nak a hozzáférést kapcsolataidhoz?</string>
 
     <string name="permissions_action_not_performed_missing_permissions">Elnézést... A művelet nem lett végre hajtva hiányzó engedélyek miatt</string>
 
@@ -668,7 +668,7 @@ A titkosított üzenetek nem fognak látszódni azokon a klienseken ahol a titko
 A jövőben ez a hitelesítési mód kényelmesebbé lesz téve.</string>
     <string name="encryption_information_verify_key_match">Hitelesítem, hogy a kulcsok egyeznek</string>
 
-    <string name="e2e_enabling_on_app_update">Mostantól a Riot támogatja a végtől végig titkosítást de előtte újra be kell jelentkezned, hogy bekapcsold.
+    <string name="e2e_enabling_on_app_update">Mostantól a Wiresafe támogatja a végtől végig titkosítást de előtte újra be kell jelentkezned, hogy bekapcsold.
 
 Ezt megteheted most vagy később az alkalmazás beállítások alatt.</string>
 

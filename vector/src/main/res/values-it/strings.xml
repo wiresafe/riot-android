@@ -88,7 +88,7 @@
     <string name="user_directory_header">Elenco utenti</string>
     <string name="matrix_only_filter">Solo contatti Matrix</string>
     <string name="no_conversation_placeholder">Nessuna conversazione</string>
-    <string name="no_contact_access_placeholder">Riot non ha il permesso di accedere ai tuoi contatti locali</string>
+    <string name="no_contact_access_placeholder">Wiresafe non ha il permesso di accedere ai tuoi contatti locali</string>
     <string name="no_result_placeholder">Nessun risultato</string>
 
     <!-- Rooms fragment -->
@@ -107,7 +107,7 @@
     <string name="send_bug_report">Rapporto bug</string>
     <string name="send_bug_report_description">Per favore descrivi l\'errore. Cosa hai fatto? Cosa ti aspettavi sarebbe accaduto? Cosa è effettivamente successo?</string>
     <string name="send_bug_report_placeholder">Descrivi il problema qui</string>
-    <string name="send_bug_report_logs_description">Al fine di diagnosticare i problemi, i registri Riot di questo dispositivo saranno inviati con il rapporto dell\'errore. Se preferisci inviare solo il testo soprastante, togli la spunta:</string>
+    <string name="send_bug_report_logs_description">Al fine di diagnosticare i problemi, i registri Wiresafe di questo dispositivo saranno inviati con il rapporto dell\'errore. Se preferisci inviare solo il testo soprastante, togli la spunta:</string>
     <string name="send_bug_report_alert_message">Sembra tu stia scuotendo il dispositivo per frustrazione. Desideri inviare il rapporto di un errore?</string>
     <string name="send_bug_report_app_crashed">L\'applicazione è crashata l\'ultima volta. Desideri inviare il rapporto del crash?</string>
 
@@ -264,14 +264,14 @@
 
     <!-- permissions Android M -->
     <string name="permissions_rationale_popup_title">Informazione</string>
-    <string name="permissions_rationale_msg_storage">Riot necessita dell\'autorizzazione per accedere alla tua galleria di foto e video per inviare e salvare allegati.\n\nPer favore abilita l\'accesso sulla prossima finestrella così da poter inviare file dal tuo telefono.</string>
-    <string name="permissions_rationale_msg_camera">Riot necessita dell\'autorizzazione per usare la fotocamera per scattare foto e fare video chiamate.</string>
+    <string name="permissions_rationale_msg_storage">Wiresafe necessita dell\'autorizzazione per accedere alla tua galleria di foto e video per inviare e salvare allegati.\n\nPer favore abilita l\'accesso sulla prossima finestrella così da poter inviare file dal tuo telefono.</string>
+    <string name="permissions_rationale_msg_camera">Wiresafe necessita dell\'autorizzazione per usare la fotocamera per scattare foto e fare video chiamate.</string>
     <string name="permissions_rationale_msg_camera_explanation">\n\nPer favore abilita l\'autorizzazione sulla prossima finestrella al fine di effettuare la chiamata.</string>
-    <string name="permissions_rationale_msg_record_audio">Riot necessita dell\'autorizzazione per usare il microfono per eseguire audio chiamate.</string>
+    <string name="permissions_rationale_msg_record_audio">Wiresafe necessita dell\'autorizzazione per usare il microfono per eseguire audio chiamate.</string>
     <string name="permissions_rationale_msg_record_audio_explanation">\n\nPer favore abilita l\'autorizzazione sulla prossima finestrella al fine di effettuare la chiamata.</string>
-    <string name="permissions_rationale_msg_camera_and_audio">Riot necessita dell\'autorizzazione per usare la fotocamera ed il microfono per eseguire video chiamate.\n\nPer favore abilita il permesso sulla prossima finestrella al fine di effettuare la chiamata.</string>
-    <string name="permissions_rationale_msg_contacts">Riot necessita dell\'autorizzazione per accedere alla tua rubrica dei contatti per trovare altri utenti Matrix basandosi sulla loro email e sul numero di telefono.\n\nPer favore abilita l\'autorizzazione sulla prossima finestrella al fine di scoprire quali contatti in rubrica sono raggiungibili su Riot.</string>
-    <string name="permissions_msg_contacts_warning_other_androids">Riot necessita dell\'autorizzazione per accedere alla tua rubrica dei contatti per trovare altri utenti Matrix basandosi sulla loro email e sul numero di telefono.\n\nPermetti a Riot di accedere ai tuoi contatti?</string>
+    <string name="permissions_rationale_msg_camera_and_audio">Wiresafe necessita dell\'autorizzazione per usare la fotocamera ed il microfono per eseguire video chiamate.\n\nPer favore abilita il permesso sulla prossima finestrella al fine di effettuare la chiamata.</string>
+    <string name="permissions_rationale_msg_contacts">Wiresafe necessita dell\'autorizzazione per accedere alla tua rubrica dei contatti per trovare altri utenti Matrix basandosi sulla loro email e sul numero di telefono.\n\nPer favore abilita l\'autorizzazione sulla prossima finestrella al fine di scoprire quali contatti in rubrica sono raggiungibili su Riot.</string>
+    <string name="permissions_msg_contacts_warning_other_androids">Wiresafe necessita dell\'autorizzazione per accedere alla tua rubrica dei contatti per trovare altri utenti Matrix basandosi sulla loro email e sul numero di telefono.\n\nPermetti a Wiresafe di accedere ai tuoi contatti?</string>
 
     <string name="permissions_action_not_performed_missing_permissions">Spiacenti… azione non eseguita a causa di mancate autorizzazioni</string>
 
@@ -715,7 +715,7 @@
     <string name="encryption_information_verify_device_warning2">Se esso corrisponde, premi il pulsante qui sotto per confermare la verifica. Se non corrisponde, allora qualcun altro ha intercettato la comunicazione e probabilmente vorrai metterlo nella lista nera piuttosto.\nIn futuro il processo di verifica sarà più sofisticato.</string>
     <string name="encryption_information_verify_key_match">Ho verificato che le chiavi corrispondano</string>
 
-    <string name="e2e_enabling_on_app_update">Riot supporta ora la crittografia da-utente-a-utente, ma devi riconnetterti per abilitarla.\n\nPuoi farlo ora o più tardi dalle impostazioni dell\'applicazione.</string>
+    <string name="e2e_enabling_on_app_update">Wiresafe supporta ora la crittografia da-utente-a-utente, ma devi riconnetterti per abilitarla.\n\nPuoi farlo ora o più tardi dalle impostazioni dell\'applicazione.</string>
 
     <!-- unknown devices management -->
     <string name="unknown_devices_alert_title">La stanza contiene dispositivi sconosciuti</string>

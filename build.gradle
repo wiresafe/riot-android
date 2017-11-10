@@ -5,7 +5,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.3'  
+        classpath 'com.android.tools.build:gradle:2.2.3'
 //        classpath 'com.google.gms:google-services:3.0.0'
         classpath 'com.google.gms:google-services:3.1.1' // google-services plugin
         // NOTE: Do not place your application dependencies here; they belong
@@ -18,14 +18,16 @@ buildscript {
             maven {
                 url "https://maven.google.com" // Google's Maven repository
             }
+            jcenter()
+            maven { url "https://jitpack.io" }
         }
     }
 }
 
 // global properties used in sub modules
 ext {
-    versionCodeProp = 70308
-    versionNameProp = "0.7.03.08"
+    versionCodeProp = 70310
+    versionNameProp = "0.7.03.10"
 }
 
 allprojects {

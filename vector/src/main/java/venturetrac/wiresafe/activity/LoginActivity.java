@@ -92,6 +92,7 @@ import venturetrac.wiresafe.UnrecognizedCertHandler;
 import venturetrac.wiresafe.receiver.VectorRegistrationReceiver;
 import venturetrac.wiresafe.receiver.VectorUniversalLinkReceiver;
 import venturetrac.wiresafe.services.EventStreamService;
+import venturetrac.wiresafe.util.AuthClass;
 import venturetrac.wiresafe.util.PhoneNumberUtils;
 
 /**
@@ -302,6 +303,7 @@ public class LoginActivity extends MXCActionBarActivity implements RegistrationM
     private Dialog mCurrentDialog;
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
+    private boolean mCheckAccountInMatrix = false;
 
 
     @Override
@@ -476,7 +478,6 @@ public class LoginActivity extends MXCActionBarActivity implements RegistrationM
             @Override
             public void onClick(View view) {
                 onLoginClick();
-//                testLog();
             }
         });
 
@@ -485,7 +486,6 @@ public class LoginActivity extends MXCActionBarActivity implements RegistrationM
             @Override
             public void onClick(View view) {
                 onRegisterClick(true);
-//                testREG();
             }
         });
 
@@ -1616,14 +1616,15 @@ public class LoginActivity extends MXCActionBarActivity implements RegistrationM
                         if (task.isSuccessful()) {
                             login(hsConfig, hsUrlString, identityUrlString, username, phoneNumber, phoneNumberCountry, password);
                         } else {
-                            enableLoadingScreen(false);
-                            Toast.makeText(getApplicationContext(), R.string.auth_invalid_login_param, Toast.LENGTH_LONG).show();
+                            mCheckAccountInMatrix = true;
+                            login(hsConfig, hsUrlString, identityUrlString, username, phoneNumber, phoneNumberCountry, password);
                         }
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        enableLoadingScreen(false);
+                        if (!mCheckAccountInMatrix)
+                            enableLoadingScreen(false);
                     }
                 });
             } else {
@@ -1654,9 +1655,27 @@ public class LoginActivity extends MXCActionBarActivity implements RegistrationM
             mLoginHandler.login(this, hsConfig, username, phoneNumber, phoneNumberCountry, password, new SimpleApiCallback<HomeServerConnectionConfig>(this) {
                 @Override
                 public void onSuccess(HomeServerConnectionConfig c) {
-                    enableLoadingScreen(false);
                     goToSplash();
+                    enableLoadingScreen(false);
                     LoginActivity.this.finish();
+                    if (mCheckAccountInMatrix) {
+                        new AuthClass().callFirebaseRegister(mAuth, username, password, new AuthClass.FirebaseRegisterCallback() {
+                            @Override
+                            public void onSuccess() {
+                                Log.e("--sa", "success");
+                            }
+
+                            @Override
+                            public void onError() {
+                                Log.e("--sa", "error");
+                            }
+
+                            @Override
+                            public void onFailure(Exception e) {
+                                Log.e("--sa", e.toString());
+                            }
+                        });
+                    }
                 }
 
                 @Override
@@ -2319,36 +2338,37 @@ public class LoginActivity extends MXCActionBarActivity implements RegistrationM
         final String email = RegistrationManager.getInstance().getRegistrationEmail();
         String pwd = RegistrationManager.getInstance().getRegistrationPassword();
         final String username = RegistrationManager.getInstance().getRegistrationUsername();
-        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (email != null && pwd != null && username != null) {
             Log.e("--sa", email + " " + pwd);
             if (user != null && user.getEmail() != null && user.getEmail().equalsIgnoreCase(email)) {
                 RegistrationManager.getInstance().attemptRegistration(this, this);
                 return;
             }
-            mAuth.createUserWithEmailAndPassword(email, pwd).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            AuthClass.FirebaseRegisterCallback callback = new AuthClass.FirebaseRegisterCallback() {
                 @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()) {
-                        if (user != null)
-                            mDatabase.child(LoginActivity.USERS).child(user.getUid()).child(LoginActivity.USERNAME).setValue(username);
-                        else
-                            Log.e("--sa", "user null");
-                        RegistrationManager.getInstance().attemptRegistration(LoginActivity.this, LoginActivity.this);
+                public void onSuccess() {
+                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                    if (user != null) {
+                        mDatabase.child(LoginActivity.USERS).child(user.getUid()).child(LoginActivity.USERNAME).setValue(username);
                     }
+                    RegistrationManager.getInstance().attemptRegistration(LoginActivity.this, LoginActivity.this);
                 }
-            }).addOnFailureListener(new OnFailureListener() {
+
                 @Override
-                public void onFailure(@NonNull Exception e) {
+                public void onError() {
 
                 }
-            });
+
+                @Override
+                public void onFailure(Exception e) {
+
+                }
+            };
+            new AuthClass().callFirebaseRegister(mAuth, email, pwd, callback);
         } else {
-            Log.e("--sa", "null email");
             RegistrationManager.getInstance().attemptRegistration(this, this);
         }
-
-//        mAuth.password
     }
 
     /**
@@ -2484,4 +2504,5 @@ public class LoginActivity extends MXCActionBarActivity implements RegistrationM
             }
         }
     }
+
 }

@@ -271,14 +271,14 @@
 
     <!-- permissions Android M -->
     <string name="permissions_rationale_popup_title">Huomio</string>
-    <string name="permissions_rationale_msg_storage">Riot tarvitsee käyttöluvan mediagalleriaasi lähettäkseen liitteitä.\n\nSalli tiedostojen käyttö seuraavalla näytöllä liittääksesi kuvia ja muita tiedostoja viesteihin.</string>
-    <string name="permissions_rationale_msg_camera">Riot tarvitsee käyttöluvan kameraan ottaakseen kuvia ja suorittakseen videopuheluita.</string>
+    <string name="permissions_rationale_msg_storage">Wiresafe tarvitsee käyttöluvan mediagalleriaasi lähettäkseen liitteitä.\n\nSalli tiedostojen käyttö seuraavalla näytöllä liittääksesi kuvia ja muita tiedostoja viesteihin.</string>
+    <string name="permissions_rationale_msg_camera">Wiresafe tarvitsee käyttöluvan kameraan ottaakseen kuvia ja suorittakseen videopuheluita.</string>
     <string name="permissions_rationale_msg_camera_explanation">\n\nSalli kameran käyttö seuraavalla näytöllä aloittaaksesi tämä puhelu.</string>
-    <string name="permissions_rationale_msg_record_audio">Riot tarvitsee käyttöluvan mikrofoniin suorittakseen puheluita.</string>
+    <string name="permissions_rationale_msg_record_audio">Wiresafe tarvitsee käyttöluvan mikrofoniin suorittakseen puheluita.</string>
     <string name="permissions_rationale_msg_record_audio_explanation">\n\nSalli mikrofonin käyttö seuraavalla näytöllä aloittaaksesi tämä puhelu.</string>
-    <string name="permissions_rationale_msg_camera_and_audio">Riot tarvitsee käyttöluvan kameraan ja mikrofoniin suorittakseen videopuheluita.\n\nSalli mikrofonin ja kameran käyttö seuraavilla näytöillä aloittaaksesi tämä puhelu.</string>
-    <string name="permissions_rationale_msg_contacts">Riot tarvitsee käyttöluvan osoitekirjaasi löytääkseen muita Matrix-käyttäjiä sähköpostiosoitteiden ja puhelinnumeroiden perusteella.\n\nSalli osoitekirjan käyttö seuraavalla näytöllä löytääksesi kontaktiesi Matrix-tilit.</string>
-    <string name="permissions_msg_contacts_warning_other_androids">Riot tarvitsee käyttöluvan osoitekirjaasi löytääkseen muita Matrix-käyttäjiä sähköpostiosoitteiden ja puhelinnumeroiden perusteella.\n\nSallitaanko Riot käyttämään osoitekirjaasi?</string>
+    <string name="permissions_rationale_msg_camera_and_audio">Wiresafe tarvitsee käyttöluvan kameraan ja mikrofoniin suorittakseen videopuheluita.\n\nSalli mikrofonin ja kameran käyttö seuraavilla näytöillä aloittaaksesi tämä puhelu.</string>
+    <string name="permissions_rationale_msg_contacts">Wiresafe tarvitsee käyttöluvan osoitekirjaasi löytääkseen muita Matrix-käyttäjiä sähköpostiosoitteiden ja puhelinnumeroiden perusteella.\n\nSalli osoitekirjan käyttö seuraavalla näytöllä löytääksesi kontaktiesi Matrix-tilit.</string>
+    <string name="permissions_msg_contacts_warning_other_androids">Wiresafe tarvitsee käyttöluvan osoitekirjaasi löytääkseen muita Matrix-käyttäjiä sähköpostiosoitteiden ja puhelinnumeroiden perusteella.\n\nSallitaanko Wiresafe käyttämään osoitekirjaasi?</string>
 
     <string name="permissions_action_not_performed_missing_permissions">Toimenpide epäonnistui puuttuvien käyttölupien takia</string>
 
@@ -706,7 +706,7 @@
     <string name="encryption_information_verify_device_warning2">Jos avain täsmää, paina \"vahvista\". Jos ei täsmää, se tarkoittaa että laitteen viestejä kaapataan. Tässä tapauksessa paina \"kiellä\".\nTulevaisuudessa tämä vahvistusprosessi tulee olemaan hienostuneempi.</string>
     <string name="encryption_information_verify_key_match">Vahvistan että avaimet täsmäävät</string>
 
-    <string name="e2e_enabling_on_app_update">Riot tukee nyt viestien salausta. Kirjaudu sisään uudelleen ottaaksesi käyttöön salaus.\n\nVoit tehdä sen nyt tai myöhemmin sovelluksen asetuksissa.</string>
+    <string name="e2e_enabling_on_app_update">Wiresafe tukee nyt viestien salausta. Kirjaudu sisään uudelleen ottaaksesi käyttöön salaus.\n\nVoit tehdä sen nyt tai myöhemmin sovelluksen asetuksissa.</string>
 
     <!-- unknown devices management -->
     <string name="unknown_devices_alert_title">Huoneessa on tuntemattomia laitteita</string>

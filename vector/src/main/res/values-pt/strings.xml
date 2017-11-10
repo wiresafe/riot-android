@@ -86,7 +86,7 @@ Selecione exportar para criar uma cópia de segurança antes de terminar sessão
     <string name="local_address_book_header">Lista de contactos local</string>
     <string name="matrix_only_filter">Apenas contactos do Matrix</string>
     <string name="no_conversation_placeholder">Sem conversas</string>
-    <string name="no_contact_access_placeholder">Não permitiu ao Riot aceder aos seus contactos locais</string>
+    <string name="no_contact_access_placeholder">Não permitiu ao Wiresafe aceder aos seus contactos locais</string>
     <string name="no_result_placeholder">Sem resultados</string>
 
     <!-- Rooms fragment -->
@@ -271,26 +271,26 @@ Pedimos desculpa pela inconveniência.</string>
 
     <!-- permissions Android M -->
     <string name="permissions_rationale_popup_title">Informação</string>
-    <string name="permissions_rationale_msg_storage">O Riot necessita de permissão para aceder ao seu armazenamento de fotos e vídeos para poder enviar e guardar anexos.
+    <string name="permissions_rationale_msg_storage">O Wiresafe necessita de permissão para aceder ao seu armazenamento de fotos e vídeos para poder enviar e guardar anexos.
 
 Permita o acesso na próxima janela para poder enviar ficheiros a partir do seu telefone.</string>
-    <string name="permissions_rationale_msg_camera">O Riot necessita de permissão para aceder à sua câmara para poder tirar fotos e fazer chamadas de vídeo.</string>
+    <string name="permissions_rationale_msg_camera">O Wiresafe necessita de permissão para aceder à sua câmara para poder tirar fotos e fazer chamadas de vídeo.</string>
     <string name="permissions_rationale_msg_camera_explanation">
 
 Por favor, permita o acesso na próxima janela para poder realizar a chamada.</string>
-    <string name="permissions_rationale_msg_record_audio">Riot necessita de permissão para aceder ao seu microfone para realizar chamadas de áudio.</string>
+    <string name="permissions_rationale_msg_record_audio">Wiresafe necessita de permissão para aceder ao seu microfone para realizar chamadas de áudio.</string>
     <string name="permissions_rationale_msg_record_audio_explanation">
 
 Por favor, permita acesso na próxima janela para poder efetuar a chamada.</string>
-    <string name="permissions_rationale_msg_camera_and_audio">Riot necessita de permissão para aceder à sua câmara e ao seu microfone para realizar chamadas de vídeo.
+    <string name="permissions_rationale_msg_camera_and_audio">Wiresafe necessita de permissão para aceder à sua câmara e ao seu microfone para realizar chamadas de vídeo.
 
 Por favor, permita o acesso na próxima janela para poder efetuar a chamada.</string>
-    <string name="permissions_rationale_msg_contacts">O Riot necessita de permissão para aceder à sua lista de contactos para encontrar outros utilizadores Matrix a partir dos seus e-mails e números de telefone.
+    <string name="permissions_rationale_msg_contacts">O Wiresafe necessita de permissão para aceder à sua lista de contactos para encontrar outros utilizadores Matrix a partir dos seus e-mails e números de telefone.
 
 Por favor, permita o acesso na próxima janela para poder encontrar utilizadores na sua lista de contactos que podem ser contactados pelo Riot.</string>
-    <string name="permissions_msg_contacts_warning_other_androids">O Riot necessita de permissão para aceder à sua lista de contactos para encontrar outros utilizadores Matrix a partir dos seus e-mails e números de telefone.
+    <string name="permissions_msg_contacts_warning_other_androids">O Wiresafe necessita de permissão para aceder à sua lista de contactos para encontrar outros utilizadores Matrix a partir dos seus e-mails e números de telefone.
 
-Permitir ao Riot aceder aos seus contactos?</string>
+Permitir ao Wiresafe aceder aos seus contactos?</string>
 
     <string name="permissions_action_not_performed_missing_permissions">Desculpe... A ação não foi realizada por falta de permissões</string>
 
@@ -735,7 +735,7 @@ Mensagens cifradas não serão visíveis para clientes que não ainda não imple
 No futuro este processo de verificação irá ser mais sofisticado.</string>
     <string name="encryption_information_verify_key_match">Eu confirmo que as chaves são iguais</string>
 
-    <string name="e2e_enabling_on_app_update">O Riot agora permite criptografia ponta-a-ponta mas necessita de iniciar sessão novamente para ativá-la.
+    <string name="e2e_enabling_on_app_update">O Wiresafe agora permite criptografia ponta-a-ponta mas necessita de iniciar sessão novamente para ativá-la.
 
 Pode fazê-lo agora ou mais tarde a partir das definições da aplicação.</string>
 

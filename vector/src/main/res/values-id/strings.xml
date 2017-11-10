@@ -159,7 +159,7 @@
 
     <string name="later">Nanti</string>
     <string name="send_anyway">Kirim Saja</string>
-    <string name="no_contact_access_placeholder">Anda tidak mengizinkan Riot untuk mengakses kontak lokal</string>
+    <string name="no_contact_access_placeholder">Anda tidak mengizinkan Wiresafe untuk mengakses kontak lokal</string>
     <string name="send_bug_report_include_crash_logs">Kirim log gangguan</string>
     <string name="huge">Raksasa</string>
 <string name="small">Kecil</string>
@@ -271,18 +271,18 @@ Mohon maaf untuk ketidaknyamannya.</string>
     <string name="media_picker_both_capture_title">Ambil sebuah gambar atau video</string>
     <string name="media_picker_cannot_record_video">Tidak bisa merekam video</string>
 
-    <string name="permissions_rationale_msg_storage">Riot membutuhkan izin Anda untuk mengakses galeri foto dan video Anda untuk mengirim dan menyimpan lampiran.
+    <string name="permissions_rationale_msg_storage">Wiresafe membutuhkan izin Anda untuk mengakses galeri foto dan video Anda untuk mengirim dan menyimpan lampiran.
 
 Harap berikan akses pada layar yang muncul berikutnya agar dapat mengirimkan data - data dari ponsel Anda.</string>
-    <string name="permissions_rationale_msg_camera">Riot membutuhkan izin Anda untuk mengakses kamera untuk mengambil gambar dan melakukan panggilan video.</string>
+    <string name="permissions_rationale_msg_camera">Wiresafe membutuhkan izin Anda untuk mengakses kamera untuk mengambil gambar dan melakukan panggilan video.</string>
     <string name="permissions_rationale_msg_camera_explanation">
 
 Harap berikan akses pada layar yang akan muncul agar dapat melakukan panggilan.</string>
-    <string name="permissions_rationale_msg_record_audio">Riot membutuhkan izin Anda untuk mengakses microphone untuk melakukan panggilan audio.</string>
+    <string name="permissions_rationale_msg_record_audio">Wiresafe membutuhkan izin Anda untuk mengakses microphone untuk melakukan panggilan audio.</string>
     <string name="permissions_rationale_msg_record_audio_explanation">
 
 Harap berikan akses pada layar yang akan muncul agar dapat melakukan panggilan.</string>
-    <string name="permissions_rationale_msg_camera_and_audio">Riot membutuhkan izin untuk mengakses kamera dan mikrofon Anda untuk melakukan panggilan video.
+    <string name="permissions_rationale_msg_camera_and_audio">Wiresafe membutuhkan izin untuk mengakses kamera dan mikrofon Anda untuk melakukan panggilan video.
 
 Harap berikan akses pada layar yang akan muncul berikutnya untuk melakukan panggilan.</string>
     </resources>

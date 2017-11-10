@@ -103,6 +103,9 @@ import java.util.TimerTask;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import uk.co.deanwild.materialshowcaseview.MaterialShowcaseSequence;
+import uk.co.deanwild.materialshowcaseview.MaterialShowcaseView;
+import uk.co.deanwild.materialshowcaseview.ShowcaseConfig;
 import venturetrac.wiresafe.Matrix;
 import venturetrac.wiresafe.MyPresenceManager;
 import venturetrac.wiresafe.PublicRoomsManager;
@@ -489,6 +492,28 @@ public class VectorHomeActivity extends RiotAppCompatActivity implements SearchV
         PublicRoomsManager.getInstance().refreshPublicRoomsCount(null);
 
         initViews();
+
+        showShowcase();
+    }
+
+    private void showShowcase() {
+        /*new MaterialShowcaseView.Builder(this).setTarget(findViewById(R.id.bottom_action_wire_transfer)).setDismissText("GOT IT")
+                .setContentText("This is some amazing feature you should know about")
+                .setDelay(2000) // optional but starting animations immediately in onCreate can make them choppy
+                .singleUse("bottom_action_wire_transfer") // provide a unique ID used to ensure it is only shown once
+                .show();*/
+
+        ShowcaseConfig config = new ShowcaseConfig();
+        config.setDelay(400); // half second between each showcase view
+        MaterialShowcaseSequence sequence = new MaterialShowcaseSequence(this, "bottom_action");
+        sequence.setConfig(config);
+        sequence.addSequenceItem(findViewById(R.id.floating_action_button), "You can start chat, create and join rooms from here", "NEXT");
+        sequence.addSequenceItem(findViewById(R.id.bottom_action_home), "This is your home tab. You can see all the chat rooms here", "NEXT");
+        sequence.addSequenceItem(findViewById(R.id.bottom_action_wire_transfer), "You can send wiresafe details from here", "NEXT");
+        sequence.addSequenceItem(findViewById(R.id.bottom_action_favourites), "This is your favorites list. You can manage favorites here", "GOT IT");
+        sequence.addSequenceItem(findViewById(R.id.bottom_action_people), "You can manage peoples here", "GOT IT");
+        sequence.addSequenceItem(findViewById(R.id.bottom_action_rooms), "You can manage chat rooms here", "OKAY");
+        sequence.start();
     }
 
     @Override

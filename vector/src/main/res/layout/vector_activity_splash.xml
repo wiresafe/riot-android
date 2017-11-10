@@ -16,7 +16,7 @@
             android:layout_width="240dp"
             android:layout_height="240dp"
             android:visibility="gone"
-            android:src="@drawable/riot_splash" />
+            android:src="@drawable/wiresafe_splash" />
 
         <ImageView
             android:id="@+id/animated_logo_image_view"

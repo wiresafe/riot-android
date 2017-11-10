@@ -85,7 +85,7 @@
     <string name="local_address_book_header">Lokales Adressbuch</string>
     <string name="matrix_only_filter">Nur Matrix-Kontakte</string>
     <string name="no_conversation_placeholder">Keine Konversationen</string>
-    <string name="no_contact_access_placeholder">Du hast Riot nicht erlaubt auf deine lokalen Kontakte zuzugreifen</string>
+    <string name="no_contact_access_placeholder">Du hast Wiresafe nicht erlaubt auf deine lokalen Kontakte zuzugreifen</string>
     <string name="no_result_placeholder">Keine Ergebnisse</string>
 
     <!-- Rooms fragment -->
@@ -262,18 +262,18 @@ Du wurdest auf allen Geräten abgemeldet und wirst keine Push-Benachrichtigungen
 
     <!-- permissions Android M -->
     <string name="permissions_rationale_popup_title">Information</string>
-    <string name="permissions_rationale_msg_storage">Riot benötigt die Berechtigung, auf deine Fotos und Videos zugreifen zu können, um Anhänge zu senden und zu speichern.\n\nBitte erlaube den Zugriff im nächsten Dialog, um Dateien von deinem Gerät zu versenden.</string>
-    <string name="permissions_rationale_msg_camera">Riot benötigt die Berechtigung, auf deine Kamera zugreifen zu können, um Bilder aufzunehmen und Video-Anrufe durchzuführen.</string>
+    <string name="permissions_rationale_msg_storage">Wiresafe benötigt die Berechtigung, auf deine Fotos und Videos zugreifen zu können, um Anhänge zu senden und zu speichern.\n\nBitte erlaube den Zugriff im nächsten Dialog, um Dateien von deinem Gerät zu versenden.</string>
+    <string name="permissions_rationale_msg_camera">Wiresafe benötigt die Berechtigung, auf deine Kamera zugreifen zu können, um Bilder aufzunehmen und Video-Anrufe durchzuführen.</string>
     <string name="permissions_rationale_msg_camera_explanation">\n\nBitte erlaube den Zugriff im nächsten Dialog, um den Anruf zu tätigen.</string>
-    <string name="permissions_rationale_msg_record_audio">Riot benötigt die Berechtigung, auf dein Mikrofon zugreifen zu können, um (Sprach-)Anrufe tätigen zu können.</string>
+    <string name="permissions_rationale_msg_record_audio">Wiresafe benötigt die Berechtigung, auf dein Mikrofon zugreifen zu können, um (Sprach-)Anrufe tätigen zu können.</string>
     <string name="permissions_rationale_msg_record_audio_explanation">\n\nBitte erlaube den Zugriff im nächsten Dialog, um den Anruf zu tätigen.</string>
-    <string name="permissions_rationale_msg_camera_and_audio">Riot benötigt die Berechtigung, auf deine Kamera und dein Mikrofon zugreifen zu können, um Video-Anrufe tätigen zu können.
+    <string name="permissions_rationale_msg_camera_and_audio">Wiresafe benötigt die Berechtigung, auf deine Kamera und dein Mikrofon zugreifen zu können, um Video-Anrufe tätigen zu können.
 
 Bitte erlaube den Zugriff im nächsten Dialog, um den Anruf zu starten.</string>
-    <string name="permissions_rationale_msg_contacts">Riot benötigt die Berechtigung, auf deine Kontakte im Adressbuch zugreifen zu können, um andere Matrix-Nutzer aufgrund ihrer E-Mail-Adresse und Telefonnummer zu finden.\n\nBitte erlaube den Zugriff im nächsten Dialog, um Kontakte im Adressbuch zu finden, die über Riot erreichbar sind.</string>
-    <string name="permissions_msg_contacts_warning_other_androids">Riot benötigt die Berechtigung, auf deine Adressbuch-Kontakte zugreifen zu dürfen, um andere Matrix-Nutzer anhand ihrer E-Mail-Adresse und/oder ihrer Telefonnummer finden zu können.
+    <string name="permissions_rationale_msg_contacts">Wiresafe benötigt die Berechtigung, auf deine Kontakte im Adressbuch zugreifen zu können, um andere Matrix-Nutzer aufgrund ihrer E-Mail-Adresse und Telefonnummer zu finden.\n\nBitte erlaube den Zugriff im nächsten Dialog, um Kontakte im Adressbuch zu finden, die über Wiresafe erreichbar sind.</string>
+    <string name="permissions_msg_contacts_warning_other_androids">Wiresafe benötigt die Berechtigung, auf deine Adressbuch-Kontakte zugreifen zu dürfen, um andere Matrix-Nutzer anhand ihrer E-Mail-Adresse und/oder ihrer Telefonnummer finden zu können.
 
-Soll Riot der Zugriff auf deine Kontakte erlaubt werden?</string>
+Soll Wiresafe der Zugriff auf deine Kontakte erlaubt werden?</string>
 
     <string name="permissions_action_not_performed_missing_permissions">Entschuldige… die Aktion wurde aufgrund fehlender Berechtigungen nicht ausgeführt</string>
 
@@ -706,7 +706,7 @@ Verschlüsselte Nachrichten werden auf Matrix-Clients, auf denen die Verschlüss
     <string name="encryption_information_verify_device_warning2">Wenn alles stimmt, drücke unten auf den Bestätigen-Button. Wenn nicht, fängt jemand anderes dieses Gerät ab und du möchtest wohl lieber den Blockieren-Button drücken.\nIn Zukunft wird dieser Bestätigungsprozess eleganter.</string>
     <string name="encryption_information_verify_key_match">Die Schlüssel stimmen überein</string>
 
-    <string name="e2e_enabling_on_app_update">Riot unterstützt jetzt Ende-zu-Ende-Verschlüsselung, du musst dich jedoch erneut anmelden, um sie zu aktivieren.
+    <string name="e2e_enabling_on_app_update">Wiresafe unterstützt jetzt Ende-zu-Ende-Verschlüsselung, du musst dich jedoch erneut anmelden, um sie zu aktivieren.
 
 Du kannst sie jetzt aktivieren oder später über das Einstellungsmenü.</string>
 

@@ -905,7 +905,8 @@ public class EventStreamService extends Service {
 
         // build the notification builder
         NotificationCompat.Builder notifBuilder = new NotificationCompat.Builder(this);
-        notifBuilder.setSmallIcon(R.drawable.permanent_notification_transparent);
+//        notifBuilder.setSmallIcon(R.drawable.permanent_notification_transparent);
+        notifBuilder.setSmallIcon(R.drawable.ic_wiresafe_notification);
         notifBuilder.setWhen(System.currentTimeMillis());
         notifBuilder.setContentTitle(getString(R.string.riot_app_name));
         notifBuilder.setContentText(subTitle);

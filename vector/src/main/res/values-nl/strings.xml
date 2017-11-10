@@ -86,7 +86,7 @@ Selecteer exporteren om de versleutelingssleutels op te slaan voordat je uitlogt
     <string name="local_address_book_header">Lokale contactenlijst</string>
     <string name="matrix_only_filter">Alleen Matrix contacten</string>
     <string name="no_conversation_placeholder">Geen gesprekken</string>
-    <string name="no_contact_access_placeholder">Je hebt Riot geen toegang tot je lokale contacten gegeven</string>
+    <string name="no_contact_access_placeholder">Je hebt Wiresafe geen toegang tot je lokale contacten gegeven</string>
     <string name="no_result_placeholder">Geen resultaten</string>
 
     <!-- Rooms fragment -->
@@ -268,7 +268,7 @@ Sta toegang toe op de volgende pop-up om bestanden vanaf je telefoon te sturen.<
     <string name="permissions_rationale_msg_camera_explanation">\n\nGeef tijdens de volgende pop-up toegang tot de camera om een oproep te maken.</string>
     <string name="permissions_rationale_msg_record_audio">%s heeft toegang nodig tot je microfoon om spraakoproepen te maken.</string>
     <string name="permissions_rationale_msg_record_audio_explanation">\n\nGeef tijdens de volgende pop-up toegang tot de microfoon om een oproep te maken.</string>
-    <string name="permissions_rationale_msg_camera_and_audio">Riot heeft permissie nodig om je camera en microfoon te gebruiken voor videogesprekken.\n\nGeef toegang op de volgende pop-ups om een oproep te maken.</string>
+    <string name="permissions_rationale_msg_camera_and_audio">Wiresafe heeft permissie nodig om je camera en microfoon te gebruiken voor videogesprekken.\n\nGeef toegang op de volgende pop-ups om een oproep te maken.</string>
     <string name="permissions_rationale_msg_contacts">Je adresboek e-mails worden geupload om matrix IDs te zoeken.</string>
     <string name="permissions_msg_contacts_warning_other_androids">Je adresboek e-mails zijn geupload voor het zoeken van matix IDs.\nGeef je %s toegang tot je contacten ?</string>
 
@@ -697,7 +697,7 @@ Sta toegang toe op de volgende pop-up om bestanden vanaf je telefoon te sturen.<
     <string name="encryption_information_verify_device_warning2">Als het overeenkomt, druk op de verifïeren knop hieronder. Als het niet overeenkomt, dan onderschept iemand anders het apparaat en wil je waarschijnlijk in plaats daar van op de blokkeren knop drukken.\nIn de toekomst zal dit verificatie proces wat meer worden vermakkelijkt.</string>
     <string name="encryption_information_verify_key_match">Ik verifïeer dat de sleutels overeenkomen</string>
 
-    <string name="e2e_enabling_on_app_update">Riot ondersteund nu eind-tot-eind versleuteling maar je moet opnieuw inloggen om het aan te zetten.
+    <string name="e2e_enabling_on_app_update">Wiresafe ondersteund nu eind-tot-eind versleuteling maar je moet opnieuw inloggen om het aan te zetten.
 
 Je kan het nu of later doen vanaf de applicatie instellingen.</string>
 

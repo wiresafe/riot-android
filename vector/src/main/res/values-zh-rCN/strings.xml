@@ -238,11 +238,11 @@
     <string name="attachment_remaining_time_seconds">%d 秒</string>
     <string name="call_connected">通话已连接</string>
     <string name="call_connecting">通话正在连接…</string>
-    <string name="permissions_rationale_msg_storage">Riot 需要访问你的图片和视频库的权限以发送和保存附件。
+    <string name="permissions_rationale_msg_storage">Wiresafe 需要访问你的图片和视频库的权限以发送和保存附件。
 
 请在接下来的弹出窗口中授权允许访问，以便能从你的手机发送文件。</string>
-    <string name="permissions_rationale_msg_camera">Rio t需要访问你相机的权限来拍照和进行视频通话。</string>
-    <string name="permissions_rationale_msg_record_audio">Riot 需要访问你麦克风的权限来进行音频通话。</string>
+    <string name="permissions_rationale_msg_camera">Wiresafe 需要访问你相机的权限来拍照和进行视频通话。</string>
+    <string name="permissions_rationale_msg_record_audio">Wiresafe 需要访问你麦克风的权限来进行音频通话。</string>
     <string name="room_preview_try_join_an_unknown_room">你正在尝试访问 %s。你要加入以参与讨论吗？</string>
     <string name="room_participants_header_admin_tools">管理工具</string>
     <string name="room_participants_header_direct_chats">私聊</string>
@@ -464,7 +464,7 @@
     <string name="permissions_rationale_msg_record_audio_explanation">
 
 请在之后的弹出窗口授权允许访问，以便进行通话。</string>
-    <string name="permissions_rationale_msg_camera_and_audio">Riot 需要访问你相机和麦克风的权限来进行视频通话。
+    <string name="permissions_rationale_msg_camera_and_audio">Wiresafe 需要访问你相机和麦克风的权限来进行视频通话。
 
 请在之后的弹出窗口中授权允许访问，以便进行通话。</string>
     <string name="permissions_action_not_performed_missing_permissions">对不起…因为缺少权限，操作已取消</string>
@@ -567,7 +567,7 @@
     <string name="encryption_information_block">列入黑名单</string>
     <string name="encryption_information_unblock">移出黑名单</string>
 
-    <string name="e2e_enabling_on_app_update">Riot 现在支持端对端加密，但你需要再次登录来启用它。
+    <string name="e2e_enabling_on_app_update">Wiresafe 现在支持端对端加密，但你需要再次登录来启用它。
 
 你可以现在或稍后从应用设置中做这件事。</string>
 
@@ -583,12 +583,12 @@
     <string name="compression_options">发送为</string>
     <string name="settings_key_display_all_events">settings_key_display_all_events</string>
     <string name="settings_key_use_rage_shake">settings_key_use_rage_shake</string>
-    <string name="permissions_rationale_msg_contacts">Riot 需要访问您的通讯录联系人的权限，才能根据其电子邮件和电话号码查找其他 Matrix 用户。
+    <string name="permissions_rationale_msg_contacts">Wiresafe 需要访问您的通讯录联系人的权限，才能根据其电子邮件和电话号码查找其他 Matrix 用户。
 
-请在下一个弹出窗口中授权允许访问，以发现从 Riot 可访问的通讯录用户。</string>
-    <string name="permissions_msg_contacts_warning_other_androids">Riot 需要访问您的通讯录联系人的权限，才能根据其电子邮件和电话号码查找其他 Matrix 用户。
+请在下一个弹出窗口中授权允许访问，以发现从 Wiresafe 可访问的通讯录用户。</string>
+    <string name="permissions_msg_contacts_warning_other_androids">Wiresafe 需要访问您的通讯录联系人的权限，才能根据其电子邮件和电话号码查找其他 Matrix 用户。
 
-允许 Riot 访问您的联系人？</string>
+允许 Wiresafe 访问您的联系人？</string>
 
     <string name="room_participants_idle">闲</string>
     <string name="room_participants_now">现在</string>
@@ -655,7 +655,7 @@
     <string name="matrix_only_filter">只有 Matrix 联系人</string>
     <string name="no_conversation_placeholder">没有对话</string>
     <string name="no_result_placeholder">没有结果</string>
-    <string name="no_contact_access_placeholder">您没有允许 Riot 访问本地联系人的权限</string>
+    <string name="no_contact_access_placeholder">您没有允许 Wiresafe 访问本地联系人的权限</string>
 
     <!-- Rooms fragment -->
     <string name="rooms_header">聊天室</string>

@@ -85,7 +85,7 @@
     <string name="local_address_book_header">Local address book</string>
     <string name="matrix_only_filter">Matrix contacts only</string>
     <string name="no_conversation_placeholder">No conversations</string>
-    <string name="no_contact_access_placeholder">You didn\'t allow Riot to access your local contacts</string>
+    <string name="no_contact_access_placeholder">You didn\'t allow Wiresafe to access your local contacts</string>
     <string name="no_result_placeholder">No results</string>
 
     <!-- Rooms fragment -->
@@ -260,14 +260,14 @@
 
     <!-- permissions Android M -->
     <string name="permissions_rationale_popup_title">Informação</string>
-    <string name="permissions_rationale_msg_storage">Riot necessita permissão para acessar sua biblitoeca de foto e vídeo para poder enviar e salvar anexos.\n\nPor favor, permita acesso na próxima tela para poder enviar arquivos do seu telefone.</string>
-    <string name="permissions_rationale_msg_camera">Riot necessita permissão para acessar sua câmera para poder tirar fotos e fazer chamadas de vídeo.</string>
+    <string name="permissions_rationale_msg_storage">Wiresafe necessita permissão para acessar sua biblitoeca de foto e vídeo para poder enviar e salvar anexos.\n\nPor favor, permita acesso na próxima tela para poder enviar arquivos do seu telefone.</string>
+    <string name="permissions_rationale_msg_camera">Wiresafe necessita permissão para acessar sua câmera para poder tirar fotos e fazer chamadas de vídeo.</string>
     <string name="permissions_rationale_msg_camera_explanation">\n\nPor favor, permita acesso na próxima tela para poder fazer a chamada.</string>
-    <string name="permissions_rationale_msg_record_audio">Riot necessita permissão para acessar seu microfone para realizar chamadas de áudio.</string>
+    <string name="permissions_rationale_msg_record_audio">Wiresafe necessita permissão para acessar seu microfone para realizar chamadas de áudio.</string>
     <string name="permissions_rationale_msg_record_audio_explanation">\n\nPor favor, permita acesso na próxima tela para poder fazer a chamada.</string>
-    <string name="permissions_rationale_msg_camera_and_audio">Riot necessita permissão para acessar sua câmera e seu microfone para realizar chamadas de vídeo.\n\nPor favor, permita acesso na próxima tela para poder fazer a chamada.</string>
-    <string name="permissions_rationale_msg_contacts">Riot necessita permissão para acessar os seus contatos para poder encontrar outros usuários a partir de seus emails e números de telefone.\n\nPor favor, permita acesso na próxima tela para poder encontrar usuários na sua agenda que podem ser contactados pelo Riot.</string>
-    <string name="permissions_msg_contacts_warning_other_androids">Riot necessita permissão para acessar os seus contatos para poder encontrar usuários na sua agenda a partir de seus emails e números de telefone.\n\nVocê autoriza o Riot a acessar seus contatos?</string>
+    <string name="permissions_rationale_msg_camera_and_audio">Wiresafe necessita permissão para acessar sua câmera e seu microfone para realizar chamadas de vídeo.\n\nPor favor, permita acesso na próxima tela para poder fazer a chamada.</string>
+    <string name="permissions_rationale_msg_contacts">Wiresafe necessita permissão para acessar os seus contatos para poder encontrar outros usuários a partir de seus emails e números de telefone.\n\nPor favor, permita acesso na próxima tela para poder encontrar usuários na sua agenda que podem ser contactados pelo Riot.</string>
+    <string name="permissions_msg_contacts_warning_other_androids">Wiresafe necessita permissão para acessar os seus contatos para poder encontrar usuários na sua agenda a partir de seus emails e números de telefone.\n\nVocê autoriza o Wiresafe a acessar seus contatos?</string>
 
     <string name="permissions_action_not_performed_missing_permissions">Desculpe... A ação não foi realizada, por falta de permissão</string>
 
@@ -693,7 +693,7 @@
     <string name="encryption_information_verify_device_warning2">Se é igual, clique no botão "verificar" abaixo. Se não é igual, então alguém está interceptando este dispositivo e você pode querer clicar no botão "bloquear".\nNo futuro vamos desenvolver um processo de verificação mais sofisticado.</string>
     <string name="encryption_information_verify_key_match">Eu confirmo que as chaves são iguais</string>
 
-    <string name="e2e_enabling_on_app_update">Riot agora permite criptografia ponta-a-ponta mas você precisa fazer login de novo para ativá-la.\n\nVocê pode fazer isso mais tarde a partir das configurações do aplicativo.</string>
+    <string name="e2e_enabling_on_app_update">Wiresafe agora permite criptografia ponta-a-ponta mas você precisa fazer login de novo para ativá-la.\n\nVocê pode fazer isso mais tarde a partir das configurações do aplicativo.</string>
 
     <!-- unknown devices management -->
     <string name="unknown_devices_alert_title">Esta sala contém dispositivos desconhecidos</string>

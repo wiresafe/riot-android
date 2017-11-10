@@ -97,7 +97,7 @@
     <string name="user_directory_header">Каталог користувачів</string>
     <string name="matrix_only_filter">Лише Matrix-контакти</string>
     <string name="no_conversation_placeholder">Немає діалогів</string>
-    <string name="no_contact_access_placeholder">Ви не надали Riot доступу до контактів</string>
+    <string name="no_contact_access_placeholder">Ви не надали Wiresafe доступу до контактів</string>
     <string name="no_result_placeholder">Немає результатів</string>
 
     <!-- Rooms fragment -->
@@ -281,8 +281,8 @@
     <string name="permissions_rationale_msg_record_audio">Для здійснення аудіодзвінків потрібен доступ до мікрофону.</string>
     <string name="permissions_rationale_msg_record_audio_explanation">\n\nБудь ласка, надайте його у наступному виринаючому вікні, щоб мати змогу здійснити дзвінок.</string>
     <string name="permissions_rationale_msg_camera_and_audio">Для здійснення відеодзвінків потрібен доступ до камери та мікрофону.\n\nБудь ласка, надайте його у наступних виринаючих вікнах, щоб мати змогу їх здійснити.</string>
-    <string name="permissions_rationale_msg_contacts">Riot потребує доступу до ваших контактів, щоб знайти інших користувачів Matrix за їх email та номерами телефонів.\n\nБудь ласка, надайте його у наступному виринаючому діалозі, щоб знати, які з контактів теж використовують Riot.</string>
-    <string name="permissions_msg_contacts_warning_other_androids">Riot потребує доступу до ваших контактів, щоб знайти інших користувачів Matrix за їх email та номерами телефонів.\n\nНадати Riot доступ до контактів?</string>
+    <string name="permissions_rationale_msg_contacts">Wiresafe потребує доступу до ваших контактів, щоб знайти інших користувачів Matrix за їх email та номерами телефонів.\n\nБудь ласка, надайте його у наступному виринаючому діалозі, щоб знати, які з контактів теж використовують Riot.</string>
+    <string name="permissions_msg_contacts_warning_other_androids">Wiresafe потребує доступу до ваших контактів, щоб знайти інших користувачів Matrix за їх email та номерами телефонів.\n\nНадати Wiresafe доступ до контактів?</string>
 
     <string name="permissions_action_not_performed_missing_permissions">Вибачте.. Дію не виконано через нестачу дозволів</string>
 
@@ -730,7 +730,7 @@
     <string name="encryption_information_verify_device_warning2">Якщо вони співпадуть, натисніть кнопку Підтвердити нижче. Якщо ж ні, хтось прослуховує цей пристрій, і ви імовірно захочете його блокувати.</string>
     <string name="encryption_information_verify_key_match">Я підтверджую, що ключі співпадають</string>
 
-    <string name="e2e_enabling_on_app_update">Тепер Riot підтримує наскрізне шифрування, але вам треба залогуватися знову, щоб його увімкнути.\n\nМожете зробити це зараз або пізніше у налаштуваннях застосунку.</string>
+    <string name="e2e_enabling_on_app_update">Тепер Wiresafe підтримує наскрізне шифрування, але вам треба залогуватися знову, щоб його увімкнути.\n\nМожете зробити це зараз або пізніше у налаштуваннях застосунку.</string>
 
     <!-- unknown devices management -->
     <string name="unknown_devices_alert_title">Кімната містить невідомі пристрої</string>

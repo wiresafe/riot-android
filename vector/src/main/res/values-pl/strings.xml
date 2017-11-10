@@ -219,11 +219,11 @@ Utwórz kopię zapasową, zanim się wylogujesz.</string>
     <string name="media_picker_cannot_record_video">Nie można nagrać filmu</string>
 
     <string name="permissions_rationale_popup_title">Informacja</string>
-    <string name="permissions_rationale_msg_storage">Riot wymaga uprawnienia, aby wysyłać i zapisywać pliki multimedialne.
+    <string name="permissions_rationale_msg_storage">Wiresafe wymaga uprawnienia, aby wysyłać i zapisywać pliki multimedialne.
 
 Przyznaj dostęp w następnym oknie.</string>
-    <string name="permissions_rationale_msg_camera">Riot wymaga uprawnienia, aby wykonywać zdjęcia i nawiązywać połączenia wideo.</string>
-    <string name="permissions_rationale_msg_record_audio">Riot wymaga uprawnienia, aby nagrywać dźwięk calls.</string>
+    <string name="permissions_rationale_msg_camera">Wiresafe wymaga uprawnienia, aby wykonywać zdjęcia i nawiązywać połączenia wideo.</string>
+    <string name="permissions_rationale_msg_record_audio">Wiresafe wymaga uprawnienia, aby nagrywać dźwięk calls.</string>
     <string name="permissions_action_not_performed_missing_permissions">Nie można wykonać operacji, ze względu na brak wymaganych uprawnień</string>
 
     <string name="media_slider_saved">Zapisano</string>

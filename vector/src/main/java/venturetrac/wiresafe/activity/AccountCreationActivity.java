@@ -72,7 +72,8 @@ public class AccountCreationActivity extends RiotBaseActivity {
 
         Intent intent = getIntent();
 
-        mHomeServerUrl = "https://matrix.org/";
+//        mHomeServerUrl = "https://matrix.org/";
+        mHomeServerUrl = "https://neo.wiresafe.com/";
 
         if (intent.hasExtra(EXTRA_HOME_SERVER_ID)) {
             mHomeServerUrl = intent.getStringExtra(EXTRA_HOME_SERVER_ID);

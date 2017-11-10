@@ -76,7 +76,7 @@ Hautatu esportatu babes-kopia bat egiteko saioa amaitu aurretik.</string>
     <string name="local_address_book_header">Gailuko helbide liburua</string>
     <string name="matrix_only_filter">Matrixeko kontaktuak besterik ez</string>
     <string name="no_conversation_placeholder">Elkarrizketarik ez</string>
-    <string name="no_contact_access_placeholder">Ez diozu baimena eman Riot aplikazioari zure gailuko kontaktuak atzitzeko</string>
+    <string name="no_contact_access_placeholder">Ez diozu baimena eman Wiresafe aplikazioari zure gailuko kontaktuak atzitzeko</string>
     <string name="no_result_placeholder">Emaitzarik ez</string>
 
     <string name="rooms_header">Gelak</string>
@@ -275,7 +275,7 @@ Barkatu eragozpenak.</string>
 Baimendu sarbidea hurrengo laster-leihoan zure telefonotik fitxategiak bidali ahal izateko.</string>
     <string name="permissions_rationale_msg_contacts">Riotek zure helbide-liburua atzitzeko baimen behar du beste Matrix erabiltzaileak bere e-mail helbide edo telefono zenbakiaren bidez aurkitzeko.
 
-Baimendu sarbidea hurrengo laster-leihoan Riot bitartez kontaktatu ditzakezun erabiltzaileak aurkitzeko.</string>
+Baimendu sarbidea hurrengo laster-leihoan Wiresafe bitartez kontaktatu ditzakezun erabiltzaileak aurkitzeko.</string>
     <string name="permissions_msg_contacts_warning_other_androids">Riotek zure helbide-liburua atzitzeko baimen behar du beste Matrix erabiltzaileak bere e-mail helbide eta telefono zenbakiaren bidez aurkitzeko.
 
 Baimendu Riotek zure kontaktuak atzitzea?</string>
