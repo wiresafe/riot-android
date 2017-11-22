@@ -1145,9 +1145,6 @@ public class VectorRoomActivity extends MXCActionBarActivity implements MatrixMe
                         mIsMarkDowning = false;
                         enableActionBarHeader(HIDE_ACTION_BAR_HEADER);
                         sendMessage(text, TextUtils.equals(text, HTMLText) ? null : HTMLText, Message.FORMAT_MATRIX_HTML);
-                        Log.e("--sa--", "text =" + text + " " + (TextUtils.equals(text, HTMLText) ? "null" : HTMLText) + " " + Message.FORMAT_MATRIX_HTML);
-                        if (mRoom != null)
-                            Log.e("--sa--", mRoom.getRoomId());
                         mEditText.setText("");
                     }
                 });
@@ -1941,9 +1938,6 @@ public class VectorRoomActivity extends MXCActionBarActivity implements MatrixMe
                         mIsMarkDowning = false;
                         enableActionBarHeader(HIDE_ACTION_BAR_HEADER);
                         sendMessage(text, TextUtils.equals(text, HTMLText) ? null : HTMLText, Message.FORMAT_MATRIX_HTML);
-                        Log.e("--sa--", "text =" + text + " " + (TextUtils.equals(text, HTMLText) ? "null" : HTMLText) + " " + Message.FORMAT_MATRIX_HTML);
-                        if (mRoom != null)
-                            Log.e("--sa--", mRoom.getRoomId());
                         mEditText.setText("");
                     }
                 });

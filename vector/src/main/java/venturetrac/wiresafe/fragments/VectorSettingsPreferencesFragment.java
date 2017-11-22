@@ -1016,7 +1016,6 @@ public class VectorSettingsPreferencesFragment extends PreferenceFragment implem
                         final String oldPwd = oldPasswordText.getText().toString().trim();
                         final String newPwd = newPasswordText.getText().toString().trim();
 
-                        Log.e("test", mFirebaseUser.getEmail() + " " + newPwd);
 //                        if (true) return;
                         displayLoadingView();
 
@@ -1129,7 +1128,7 @@ public class VectorSettingsPreferencesFragment extends PreferenceFragment implem
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        Log.e("test", "User re-authenticated.");
+//                        TODO
                     }
                 });
     }

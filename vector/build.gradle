@@ -1,5 +1,9 @@
 apply plugin: 'com.android.application'
 
+def keystorePropertiesFile = rootProject.file("../../keystore.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
 android {
     compileSdkVersion 25
     buildToolsVersion '25.0.2'
@@ -18,7 +22,7 @@ android {
         versionName rootProject.ext.versionNameProp
 
         // custom values
-        resValue "string", "bug_report_url",  "https://riot.im/bugreports/submit"
+        resValue "string", "bug_report_url", "https://riot.im/bugreports/submit"
 
         ndk {
             abiFilters "armeabi-v7a", "x86"
@@ -38,10 +42,20 @@ android {
 
     signingConfigs {
         release {
-            storeFile file(project.hasProperty("RELEASE_STORE_FILE") ? RELEASE_STORE_FILE : "/dummy/path")
-            storePassword project.hasProperty("RELEASE_STORE_PASSWORD") ? RELEASE_STORE_PASSWORD : "dummy password"
-            keyAlias project.hasProperty("RELEASE_KEY_ALIAS") ? RELEASE_KEY_ALIAS : "dummy alias"
-            keyPassword project.hasProperty("RELEASE_KEY_PASSWORD") ? RELEASE_KEY_PASSWORD : "dummy password"
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+//            storeFile file(project.hasProperty("RELEASE_STORE_FILE") ? RELEASE_STORE_FILE : "/dummy/path")
+//            storePassword project.hasProperty("RELEASE_STORE_PASSWORD") ? RELEASE_STORE_PASSWORD : "dummy password"
+//            keyAlias project.hasProperty("RELEASE_KEY_ALIAS") ? RELEASE_KEY_ALIAS : "dummy alias"
+//            keyPassword project.hasProperty("RELEASE_KEY_PASSWORD") ? RELEASE_KEY_PASSWORD : "dummy password"
+        }
+        debug {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
         }
     }
 
@@ -59,6 +73,8 @@ android {
         }
 
         release {
+            signingConfig signingConfigs.release
+
             resValue "string", "git_revision", "\"${gitRevision()}\""
             resValue "string", "git_revision_date", "\"${gitRevisionDate()}\""
             resValue "string", "git_branch_name", "\"${gitBranchName()}\""
@@ -197,10 +213,10 @@ dependencies {
 
     appCompile 'com.github.deano2390:MaterialShowcaseView:1.2.0@aar'
 
-
     // fdroid flavor only
 
     compile 'com.google.firebase:firebase-auth:11.4.2'
+    compile 'com.google.android.gms:play-services-auth:11.4.2'
 }
 
 

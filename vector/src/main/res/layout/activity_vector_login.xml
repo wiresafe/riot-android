@@ -8,7 +8,8 @@
         android:layout_width="wrap_content"
         android:layout_height="56dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true">
+        android:layout_alignParentRight="true"
+        android:visibility="gone">
 
         <View
             android:layout_width="match_parent"
@@ -114,7 +115,7 @@
                 <ImageView
                     android:id="@+id/login_large_logo"
                     android:layout_width="wrap_content"
-                    android:layout_height="100dp"
+                    android:layout_height="160dp"
                     android:layout_centerHorizontal="true"
                     android:src="@drawable/logo_login" />
             </RelativeLayout>
@@ -135,6 +136,12 @@
                     android:orientation="vertical"
                     android:visibility="gone">
 
+                    <com.google.android.gms.common.SignInButton
+                        android:id="@+id/sign_in_button_google"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="100dp" />
+
                     <EditText
                         android:id="@+id/login_user_name"
                         android:layout_width="match_parent"
@@ -142,7 +149,8 @@
                         android:hint="@string/settings_email_address"
                         android:inputType="text"
                         android:maxLines="1"
-                        android:nextFocusDown="@+id/login_password" />
+                        android:nextFocusDown="@+id/login_password"
+                        android:visibility="gone" />
                     <!--<EditText-->
                     <!--android:id="@+id/login_user_name"-->
                     <!--android:layout_width="match_parent"-->
@@ -157,13 +165,15 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="4dp"
                         android:text="@string/or"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        android:visibility="gone" />
 
                     <LinearLayout
                         android:id="@+id/login_phone_number"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:visibility="gone">
 
                         <EditText
                             android:id="@+id/login_phone_number_country"
@@ -195,7 +205,8 @@
                         android:ems="10"
                         android:hint="@string/auth_password_placeholder"
                         android:inputType="textPassword"
-                        android:maxLines="1" />
+                        android:maxLines="1"
+                        android:visibility="gone" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -330,7 +341,8 @@
                     android:id="@+id/homeserver_layout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
                     <RelativeLayout
                         android:id="@+id/display_server_url_layout"

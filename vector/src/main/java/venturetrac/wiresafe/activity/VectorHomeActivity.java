@@ -66,7 +66,17 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import org.matrix.androidsdk.MXDataHandler;
 import org.matrix.androidsdk.MXSession;
@@ -132,7 +142,7 @@ import venturetrac.wiresafe.view.VectorPendingCallView;
  * Displays the main screen of the app, with rooms the user has joined and the ability to create
  * new rooms.
  */
-public class VectorHomeActivity extends RiotAppCompatActivity implements SearchView.OnQueryTextListener {
+public class VectorHomeActivity extends RiotAppCompatActivity implements SearchView.OnQueryTextListener, GoogleApiClient.OnConnectionFailedListener {
 
     private static final String LOG_TAG = VectorHomeActivity.class.getSimpleName();
 
@@ -246,6 +256,7 @@ public class VectorHomeActivity extends RiotAppCompatActivity implements SearchV
 
     // floating action bar dialog
     private AlertDialog mFabDialog;
+    private GoogleApiClient mGoogleApiClient;
 
      /*
      * *********************************************************************************************
@@ -494,6 +505,10 @@ public class VectorHomeActivity extends RiotAppCompatActivity implements SearchV
         initViews();
 
         showShowcase();
+
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id)).requestEmail().build();
+        mGoogleApiClient = new GoogleApiClient.Builder(this).enableAutoManage(this, this).addApi(Auth.GOOGLE_SIGN_IN_API, gso).build();
     }
 
     private void showShowcase() {
@@ -1790,8 +1805,20 @@ public class VectorHomeActivity extends RiotAppCompatActivity implements SearchV
                                         new DialogInterface.OnClickListener() {
                                             public void onClick(DialogInterface dialog, int id) {
                                                 VectorHomeActivity.this.showWaitingView();
-                                                CommonActivityUtils.logout(VectorHomeActivity.this);
-                                                FirebaseAuth.getInstance().signOut();
+                                                if (null != mGoogleApiClient && mGoogleApiClient.isConnected())
+                                                    Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(new ResultCallback<Status>() {
+                                                        @Override
+                                                        public void onResult(@NonNull Status status) {
+                                                            if (status.isSuccess()) {
+                                                                CommonActivityUtils.logout(VectorHomeActivity.this);
+                                                                FirebaseAuth.getInstance().signOut();
+                                                            } else
+                                                                Toast.makeText(VectorHomeActivity.this, getString(R.string.signout_operation_failed), Toast.LENGTH_SHORT).show();
+                                                        }
+                                                    });
+                                                else
+                                                    Toast.makeText(VectorHomeActivity.this, getString(R.string.signout_operation_failed), Toast.LENGTH_SHORT).show();
+
                                             }
                                         })
                                 .setNeutralButton(R.string.encryption_export_export, new DialogInterface.OnClickListener() {
@@ -2404,5 +2431,10 @@ public class VectorHomeActivity extends RiotAppCompatActivity implements SearchV
         if (mSession.isAlive()) {
             mSession.getDataHandler().removeListener(mEventsListener);
         }
+    }
+
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+
     }
 }

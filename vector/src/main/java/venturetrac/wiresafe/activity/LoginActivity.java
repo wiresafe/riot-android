@@ -51,14 +51,24 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GetTokenResult;
+import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.gson.Gson;
 
 import org.matrix.androidsdk.HomeServerConnectionConfig;
 import org.matrix.androidsdk.MXSession;
@@ -93,12 +103,13 @@ import venturetrac.wiresafe.receiver.VectorRegistrationReceiver;
 import venturetrac.wiresafe.receiver.VectorUniversalLinkReceiver;
 import venturetrac.wiresafe.services.EventStreamService;
 import venturetrac.wiresafe.util.AuthClass;
+import venturetrac.wiresafe.util.Connectivity;
 import venturetrac.wiresafe.util.PhoneNumberUtils;
 
 /**
  * Displays the login screen.
  */
-public class LoginActivity extends MXCActionBarActivity implements RegistrationManager.RegistrationListener, RegistrationManager.UsernameValidityListener {
+public class LoginActivity extends MXCActionBarActivity implements RegistrationManager.RegistrationListener, RegistrationManager.UsernameValidityListener, GoogleApiClient.OnConnectionFailedListener {
 
     private static final String LOG_TAG = "LoginActivity";
 
@@ -110,6 +121,7 @@ public class LoginActivity extends MXCActionBarActivity implements RegistrationM
 
     private static final int REQUEST_REGISTRATION_COUNTRY = 1245;
     private static final int REQUEST_LOGIN_COUNTRY = 5678;
+    private static final int REQUEST_GOOGLE_SIGNIN = 199;
 
     // activity modes
     // either the user logs in
@@ -304,6 +316,8 @@ public class LoginActivity extends MXCActionBarActivity implements RegistrationM
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
     private boolean mCheckAccountInMatrix = false;
+    private GoogleApiClient mGoogleApiClient;
+    private boolean mGoogleSigninAttempt;
 
 
     @Override
@@ -645,6 +659,29 @@ public class LoginActivity extends MXCActionBarActivity implements RegistrationM
 
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
+
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .enableAutoManage(this /* Activity */, this /* OnConnectionFailedListener */)
+                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                .build();
+        findViewById(R.id.sign_in_button_google).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                proceedFirebaseGoogleSignin();
+            }
+        });
+    }
+
+    private void proceedFirebaseGoogleSignin() {
+        if (Connectivity.isConnected(this)) {
+            Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
+            startActivityForResult(signInIntent, REQUEST_GOOGLE_SIGNIN);
+        } else {
+            Toast.makeText(this, R.string.check_your_internet_connection, Toast.LENGTH_SHORT).show();
+        }
     }
 
     /**
@@ -1614,7 +1651,24 @@ public class LoginActivity extends MXCActionBarActivity implements RegistrationM
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            login(hsConfig, hsUrlString, identityUrlString, username, phoneNumber, phoneNumberCountry, password);
+                            task.getResult().getUser().getIdToken(true).addOnCompleteListener(new OnCompleteListener<GetTokenResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<GetTokenResult> task) {
+                                    login(hsConfig, hsUrlString, identityUrlString, username, phoneNumber, phoneNumberCountry, task.getResult().getToken());
+                                }
+                            });
+
+                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+//                            task.addOnSuccessListener(LoginActivity.this, new OnSuccessListener<AuthResult>() {
+//                                @Override
+//                                public void onSuccess(AuthResult authResult) {
+//                                    Log.e("test","--firebase auth task success");
+//
+//                                    Log.e("test", "Firebase User Access Token : " + authResult.getUser().getIdToken(true).getResult().getToken());
+//                                    login(hsConfig, hsUrlString, identityUrlString, username, phoneNumber, phoneNumberCountry, authResult.getUser().getIdToken(true).getResult().getToken());
+//                                }
+//                            });
                         } else {
                             mCheckAccountInMatrix = true;
                             login(hsConfig, hsUrlString, identityUrlString, username, phoneNumber, phoneNumberCountry, password);
@@ -1662,17 +1716,17 @@ public class LoginActivity extends MXCActionBarActivity implements RegistrationM
                         new AuthClass().callFirebaseRegister(mAuth, username, password, new AuthClass.FirebaseRegisterCallback() {
                             @Override
                             public void onSuccess() {
-                                Log.e("--sa", "success");
+//                                TODO
                             }
 
                             @Override
                             public void onError() {
-                                Log.e("--sa", "error");
+                                //                                TODO
                             }
 
                             @Override
                             public void onFailure(Exception e) {
-                                Log.e("--sa", e.toString());
+                                //                                TODO
                             }
                         });
                     }
@@ -1742,7 +1796,8 @@ public class LoginActivity extends MXCActionBarActivity implements RegistrationM
                         removeNetworkStateNotificationListener();
 
                         if (mMode == MODE_LOGIN) {
-                            enableLoadingScreen(false);
+                            if (!mGoogleSigninAttempt)
+                                enableLoadingScreen(false);
                             setActionButtonsEnabled(true);
                             boolean isSupported = true;
 
@@ -1927,7 +1982,8 @@ public class LoginActivity extends MXCActionBarActivity implements RegistrationM
         boolean isLoginMode = mMode == MODE_LOGIN;
         boolean isForgetPasswordMode = (mMode == MODE_FORGOT_PASSWORD) || (mMode == MODE_FORGOT_PASSWORD_WAITING_VALIDATION);
 
-        mButtonsView.setVisibility(View.VISIBLE);
+//        mButtonsView.setVisibility(View.VISIBLE);
+        // Above line changed for firebase login UI TODO
 
 //        mPasswordForgottenTxtView.setVisibility(isLoginMode ? View.VISIBLE : View.GONE);
         mLoginButton.setVisibility(mMode == MODE_LOGIN || mMode == MODE_ACCOUNT_CREATION ? View.VISIBLE : View.GONE);
@@ -1936,7 +1992,8 @@ public class LoginActivity extends MXCActionBarActivity implements RegistrationM
         mForgotValidateEmailButton.setVisibility(mMode == MODE_FORGOT_PASSWORD_WAITING_VALIDATION ? View.VISIBLE : View.GONE);
         mSubmitThreePidButton.setVisibility(mMode == MODE_ACCOUNT_CREATION_THREE_PID ? View.VISIBLE : View.GONE);
 //        mSkipThreePidButton.setVisibility(mMode == MODE_ACCOUNT_CREATION_THREE_PID && RegistrationManager.getInstance().canSkip() ? View.VISIBLE : View.GONE);
-        mHomeServerOptionLayout.setVisibility(mMode == MODE_ACCOUNT_CREATION_THREE_PID ? View.GONE : View.VISIBLE);
+//        mHomeServerOptionLayout.setVisibility(mMode == MODE_ACCOUNT_CREATION_THREE_PID ? View.GONE : View.VISIBLE);
+        // Above line changed for firebase login UI TODO
 
         // update the button text to the current status
         // 1 - the user does not warn that he clicks on the email validation
@@ -2115,7 +2172,146 @@ public class LoginActivity extends MXCActionBarActivity implements RegistrationM
                 mHomeServerText.setText("https://");
                 setActionButtonsEnabled(false);
             }
+        } else if (requestCode == REQUEST_GOOGLE_SIGNIN) {
+            if (resultCode == RESULT_OK) {
+                enableLoadingScreen(true);
+                mGoogleSigninAttempt = true;
+                GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+                GoogleSignInAccount account = result.getSignInAccount();
+                firebaseAuthWithGoogle(account);
+            } else Toast.makeText(this, R.string.request_not_granted, Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void firebaseAuthWithGoogle(final GoogleSignInAccount account) {
+        AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(), null);
+        mAuth.signInWithCredential(credential).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    task.getResult().getUser().getIdToken(true).addOnCompleteListener(new OnCompleteListener<GetTokenResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<GetTokenResult> task) {
+                            if (task.isSuccessful()) {
+                                if (null != FirebaseAuth.getInstance().getCurrentUser())
+                                    loginOperation(FirebaseAuth.getInstance().getCurrentUser().getUid(), task.getResult().getToken());
+                                else enableLoadingScreen(false);
+                            } else enableLoadingScreen(false);
+                        }
+                    });
+                }
+            }
+        });
+    }
+
+    private void loginOperation(String email, String idToken) {
+        if (onHomeServerUrlUpdate() || onIdentityserverUrlUpdate()) {
+            mIsPendingLogin = true;
+            Log.d(LOG_TAG, "## onLoginClick() : The user taps on login but the IS/HS did not loos the focus");
+            return;
+        }
+
+        onClick();
+
+        // the user switches to another mode
+        if (mMode != MODE_LOGIN) {
+            // end any pending registration UI
+            showMainLayout();
+
+            mMode = MODE_LOGIN;
+            refreshDisplay();
+            return;
+        }
+
+        mIsPendingLogin = false;
+
+        final HomeServerConnectionConfig hsConfig = getHsConfig();
+        final String hsUrlString = getHomeServerUrl();
+        final String identityUrlString = getIdentityServerUrl();
+
+        // --------------------- sanity tests for input values.. ---------------------
+        if (!hsUrlString.startsWith("http")) {
+            Toast.makeText(this, getString(R.string.login_error_must_start_http), Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (!identityUrlString.startsWith("http")) {
+            Toast.makeText(this, getString(R.string.login_error_must_start_http), Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+//        final String username = mLoginEmailTextView.getText().toString().trim();
+//        final String phoneNumber = mLoginPhoneNumberHandler.getE164PhoneNumber();
+//        final String phoneNumberCountry = mLoginPhoneNumberHandler.getCountryCode();
+//        final String password = mLoginPasswordTextView.getText().toString().trim();
+
+//        if (TextUtils.isEmpty(password)) {
+//            Toast.makeText(this, getString(R.string.auth_invalid_login_param), Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+
+//        if (TextUtils.isEmpty(username) && !mLoginPhoneNumberHandler.isPhoneNumberValidForCountry()) {
+//            // Check if phone number is empty or just invalid
+//            if (mLoginPhoneNumberHandler.getPhoneNumber() != null) {
+//                Toast.makeText(this, R.string.auth_invalid_phone, Toast.LENGTH_SHORT).show();
+//                return;
+//            } else {
+//                Toast.makeText(this, getString(R.string.auth_invalid_login_param), Toast.LENGTH_SHORT).show();
+//                return;
+//            }
+//        }
+
+        // disable UI actions
+        enableLoadingScreen(true);
+        login(hsConfig, hsUrlString, identityUrlString, email, "", "", idToken);
+
+        //TODO
+        /*if (!username.isEmpty()) {
+            if (android.util.Patterns.EMAIL_ADDRESS.matcher(username).matches()) {
+                mAuth.signInWithEmailAndPassword(username, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            Log.e("test", "--firebase auth ok");
+
+                            task.getResult().getUser().getIdToken(true).addOnCompleteListener(new OnCompleteListener<GetTokenResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<GetTokenResult> task) {
+                                    Log.e("test", "Firebase User Access Token : " + task.getResult().getToken());
+                                    login(hsConfig, hsUrlString, identityUrlString, username, phoneNumber, phoneNumberCountry, task.getResult().getToken());
+                                }
+                            });
+
+                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+//                            task.addOnSuccessListener(LoginActivity.this, new OnSuccessListener<AuthResult>() {
+//                                @Override
+//                                public void onSuccess(AuthResult authResult) {
+//                                    Log.e("test","--firebase auth task success");
+//
+//                                    Log.e("test", "Firebase User Access Token : " + authResult.getUser().getIdToken(true).getResult().getToken());
+//                                    login(hsConfig, hsUrlString, identityUrlString, username, phoneNumber, phoneNumberCountry, authResult.getUser().getIdToken(true).getResult().getToken());
+//                                }
+//                            });
+                        } else {
+                            mCheckAccountInMatrix = true;
+                            login(hsConfig, hsUrlString, identityUrlString, username, phoneNumber, phoneNumberCountry, password);
+                        }
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        if (!mCheckAccountInMatrix)
+                            enableLoadingScreen(false);
+                    }
+                });
+            } else {
+                enableLoadingScreen(false);
+                Toast.makeText(this, getString(R.string.auth_invalid_email), Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            login(hsConfig, hsUrlString, identityUrlString, username, phoneNumber, phoneNumberCountry, password);
+        }*/
     }
 
     /*
@@ -2340,7 +2536,6 @@ public class LoginActivity extends MXCActionBarActivity implements RegistrationM
         final String username = RegistrationManager.getInstance().getRegistrationUsername();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (email != null && pwd != null && username != null) {
-            Log.e("--sa", email + " " + pwd);
             if (user != null && user.getEmail() != null && user.getEmail().equalsIgnoreCase(email)) {
                 RegistrationManager.getInstance().attemptRegistration(this, this);
                 return;
@@ -2505,4 +2700,8 @@ public class LoginActivity extends MXCActionBarActivity implements RegistrationM
         }
     }
 
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+
+    }
 }

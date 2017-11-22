@@ -30,6 +30,7 @@ import org.matrix.androidsdk.rest.model.MatrixError;
 import org.matrix.androidsdk.rest.model.ThreePid;
 import org.matrix.androidsdk.rest.model.login.Credentials;
 import org.matrix.androidsdk.rest.model.login.LoginFlow;
+import org.matrix.androidsdk.rest.model.login.LoginParams;
 import org.matrix.androidsdk.rest.model.login.RegistrationParams;
 import org.matrix.androidsdk.ssl.CertUtil;
 import org.matrix.androidsdk.ssl.Fingerprint;
@@ -45,10 +46,11 @@ public class LoginHandler {
 
     /**
      * The account login / creation succeeds so create the dedicated session and store it.
-     * @param appCtx the application context.
-     * @param hsConfig the homeserver config
+     *
+     * @param appCtx      the application context.
+     * @param hsConfig    the homeserver config
      * @param credentials the credentials
-     * @param callback the callback
+     * @param callback    the callback
      */
     private void onRegistrationDone(Context appCtx, HomeServerConnectionConfig hsConfig, Credentials credentials, SimpleApiCallback<HomeServerConnectionConfig> callback) {
         // sanity check - GA issue
@@ -77,13 +79,14 @@ public class LoginHandler {
     /**
      * Try to login.
      * The MXSession is created if the operation succeeds.
-     * @param ctx the context.
-     * @param hsConfig The homeserver config.
-     * @param username The username.
-     * @param phoneNumber The phone number.
+     *
+     * @param ctx                the context.
+     * @param hsConfig           The homeserver config.
+     * @param username           The username.
+     * @param phoneNumber        The phone number.
      * @param phoneNumberCountry The phone number country code.
-     * @param password The password;
-     * @param callback The callback.
+     * @param password           The password;
+     * @param callback           The callback.
      */
     public void login(Context ctx, final HomeServerConnectionConfig hsConfig, final String username,
                       final String phoneNumber, final String phoneNumberCountry, final String password,
@@ -150,6 +153,7 @@ public class LoginHandler {
                            final String phoneNumber, final String phoneNumberCountry,
                            final String password, final SimpleApiCallback<Credentials> callback) {
         LoginRestClient client = new LoginRestClient(hsConfig);
+
         String deviceName = ctx.getString(R.string.login_mobile_device);
 
         if (!TextUtils.isEmpty(username)) {
@@ -163,11 +167,19 @@ public class LoginHandler {
         } else if (!TextUtils.isEmpty(phoneNumber) && !TextUtils.isEmpty(phoneNumberCountry)) {
             client.loginWithPhoneNumber(phoneNumber, phoneNumberCountry, password, deviceName, callback);
         }
+
+//        client.loginWithUser(username, password, callback);
+//        client.loginWithToken(username, password, deviceName, callback);
+//        client.loginWithToken(username, password, null, deviceName, callback);
+//        client.loginWithToken(username, password, null, null, callback);
+//        client.loginWithUser(username, password, null, callback);
+
     }
 
     /**
      * Retrieve the supported login flows of a home server.
-     * @param ctx the application context.
+     *
+     * @param ctx      the application context.
      * @param hsConfig the home server config.
      * @param callback the supported flows list callback.
      */
@@ -223,7 +235,8 @@ public class LoginHandler {
 
     /**
      * Retrieve the supported registration flows of a home server.
-     * @param ctx the application context.
+     *
+     * @param ctx      the application context.
      * @param hsConfig the home server config.
      * @param callback the supported flows list callback.
      */
@@ -233,7 +246,8 @@ public class LoginHandler {
 
     /**
      * Retrieve the supported registration flows of a home server.
-     * @param ctx the application context.
+     *
+     * @param ctx      the application context.
      * @param hsConfig the home server config.
      * @param callback the supported flows list callback.
      */
@@ -244,14 +258,14 @@ public class LoginHandler {
         // avoid dispatching the device name
         params.initial_device_display_name = ctx.getString(R.string.login_mobile_device);
 
-        client.register(params, new SimpleApiCallback <Credentials> () {
+        client.register(params, new SimpleApiCallback<Credentials>() {
             @Override
-            public void onSuccess(Credentials credentials){
+            public void onSuccess(Credentials credentials) {
                 onRegistrationDone(appCtx, hsConfig, credentials, callback);
             }
 
             @Override
-            public void onNetworkError ( final Exception e){
+            public void onNetworkError(final Exception e) {
                 UnrecognizedCertificateException unrecCertEx = CertUtil.getCertificateException(e);
                 if (unrecCertEx != null) {
                     final Fingerprint fingerprint = unrecCertEx.getFingerprint();
@@ -279,12 +293,12 @@ public class LoginHandler {
             }
 
             @Override
-            public void onUnexpectedError (Exception e){
+            public void onUnexpectedError(Exception e) {
                 callback.onUnexpectedError(e);
             }
 
             @Override
-            public void onMatrixError (MatrixError e){
+            public void onMatrixError(MatrixError e) {
                 callback.onMatrixError(e);
             }
         });
@@ -292,17 +306,18 @@ public class LoginHandler {
 
     /**
      * Perform the validation of a mail ownership.
-     * @param aCtx Android App context
+     *
+     * @param aCtx              Android App context
      * @param aHomeServerConfig server configuration
-     * @param aToken the token
-     * @param aClientSecret the client secret
-     * @param aSid the server identity session id
-     * @param aRespCallback asynchronous callback response
+     * @param aToken            the token
+     * @param aClientSecret     the client secret
+     * @param aSid              the server identity session id
+     * @param aRespCallback     asynchronous callback response
      */
     public void submitEmailTokenValidation(final Context aCtx, final HomeServerConnectionConfig aHomeServerConfig,
                                            final String aToken, final String aClientSecret, final String aSid,
                                            final ApiCallback<Boolean> aRespCallback) {
-        final ThreePid pid = new ThreePid(null,  ThreePid.MEDIUM_EMAIL);
+        final ThreePid pid = new ThreePid(null, ThreePid.MEDIUM_EMAIL);
         ThirdPidRestClient restClient = new ThirdPidRestClient(aHomeServerConfig);
 
         pid.submitValidationToken(restClient, aToken, aClientSecret, aSid, new ApiCallback<Boolean>() {

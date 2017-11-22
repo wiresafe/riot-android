@@ -51,4 +51,7 @@
     <string name="email_required">Email required</string>
     <string name="auth_invalid_email_or_password">Invalid email or password</string>
     <string name="phone_number_verification_failed">Phone number verification failed</string>
+    <string name="check_your_internet_connection">Check your internet connection</string>
+    <string name="request_not_granted">Request not granted</string>
+    <string name="signout_operation_failed">Signout operation failed</string>
 </resources>
