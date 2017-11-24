@@ -592,7 +592,9 @@ public class VectorHomeActivity extends RiotAppCompatActivity implements SearchV
         if (null == PreferencesManager.useGA(this) && (null == mUseGAAlert) && (null == mUniversalLinkToOpen) && (null == mAutomaticallyOpenedRoomParams)) {
             mUseGAAlert = new AlertDialog.Builder(this);
 
-            mUseGAAlert.setMessage(getApplicationContext().getString(R.string.ga_use_alert_message)).setPositiveButton(getString(R.string.yes), new DialogInterface.OnClickListener() {
+
+            //TODO commented the code for querying about sending app crash report
+            /*mUseGAAlert.setMessage(getApplicationContext().getString(R.string.ga_use_alert_message)).setPositiveButton(getString(R.string.yes), new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     if (null != VectorApp.getInstance()) {
@@ -608,12 +610,14 @@ public class VectorHomeActivity extends RiotAppCompatActivity implements SearchV
                         PreferencesManager.setUseGA(VectorHomeActivity.this, false);
                     }
                 }
-            }).show();
+            }).show();*/
         }
 
         if ((null != VectorApp.getInstance()) && VectorApp.getInstance().didAppCrash()) {
             // crash reported by a rage shake
-            try {
+
+            //TODO commented code for querying about sending last occurred crash report
+            /*try {
                 final AlertDialog.Builder appCrashedAlert = new AlertDialog.Builder(this);
                 appCrashedAlert.setMessage(getApplicationContext().getString(R.string.send_bug_report_app_crashed)).setPositiveButton(getString(R.string.yes), new DialogInterface.OnClickListener() {
                     @Override
@@ -630,7 +634,7 @@ public class VectorHomeActivity extends RiotAppCompatActivity implements SearchV
                 VectorApp.getInstance().clearAppCrashStatus();
             } catch (Exception e) {
                 Log.e(LOG_TAG, "## onResume() : appCrashedAlert failed " + e.getMessage());
-            }
+            }*/
         }
 
         if (!mStorePermissionCheck) {

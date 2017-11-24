@@ -317,7 +317,7 @@ public class LoginActivity extends MXCActionBarActivity implements RegistrationM
     private DatabaseReference mDatabase;
     private boolean mCheckAccountInMatrix = false;
     private GoogleApiClient mGoogleApiClient;
-    private boolean mGoogleSigninAttempt;
+    private boolean mGoogleSigninAttempt = false;
 
 
     @Override
