@@ -45,7 +45,7 @@
     <string name="hint_account_owner_name">Account Owner Name</string>
     <string name="hint_bank_routing_number">Bank Routing Number</string>
     <string name="hint_bank_account_number">Bank Account Number</string>
-    <string name="alert_should_be_member_of_a_room_for_continue">Should be member of a room for continue</string>
+    <string name="alert_should_be_member_of_a_room_to_continue">Should be member of a room to continue</string>
     <string name="submit">Submit</string>
     <string name="reset">Reset</string>
     <string name="email_required">Email required</string>

@@ -44,6 +44,7 @@ public class WireTransferFragment extends AbsHomeFragment {
     private EditText mAccountOwnerNameEditText;
     private EditText mBankRoutingNumberEditText;
     private EditText mBankAccountNumberEditText;
+    private AlertDialog mNotMemberAlert;
 
     @Nullable
     @Override
@@ -92,6 +93,17 @@ public class WireTransferFragment extends AbsHomeFragment {
         initData();
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        removeNotMemberAlert();
+    }
+
+    private void removeNotMemberAlert() {
+        if (null != mNotMemberAlert && mNotMemberAlert.isShowing())
+            mNotMemberAlert.dismiss();
+    }
+
     private void initData() {
         final Collection<Room> roomCollection = mSession.getDataHandler().getStore().getRooms();
         final List<String> directChatIds = mSession.getDirectChatRoomIdsList();
@@ -131,7 +143,7 @@ public class WireTransferFragment extends AbsHomeFragment {
             }
         });
         TextView resetTextView = (TextView) view.findViewById(R.id.textview_reset);
-        resetTextView.setPaintFlags(resetTextView.getPaintFlags() |   Paint.UNDERLINE_TEXT_FLAG);
+        resetTextView.setPaintFlags(resetTextView.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         resetTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -197,14 +209,18 @@ public class WireTransferFragment extends AbsHomeFragment {
     }
 
     private void showNotAddedToRoom() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setMessage(getString(R.string.alert_should_be_member_of_a_room_for_continue));
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        }).show();
+        if (null == mNotMemberAlert) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setMessage(getString(R.string.alert_should_be_member_of_a_room_to_continue));
+            mNotMemberAlert = builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            }).create();
+        }
+        if (null != mNotMemberAlert && !mNotMemberAlert.isShowing())
+            mNotMemberAlert.show();
     }
 
     public static WireTransferFragment newInstance() {
