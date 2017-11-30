@@ -26,8 +26,8 @@ buildscript {
 
 // global properties used in sub modules
 ext {
-    versionCodeProp = 70314
-    versionNameProp = "0.7.03.14"
+    versionCodeProp = 70315
+    versionNameProp = "0.7.03.15"
 }
 
 allprojects {

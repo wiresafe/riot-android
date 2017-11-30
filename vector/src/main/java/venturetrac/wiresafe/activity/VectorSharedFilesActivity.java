@@ -74,6 +74,7 @@ public class VectorSharedFilesActivity extends RiotBaseActivity {
                     Log.d(LOG_TAG, "onCreate : go to login screen");
 
                     // don't know what to do, go to the login screen
+//                    TODO
                     Intent loginIntent = new Intent(this, LoginActivity.class);
                     startActivity(loginIntent);
                 }

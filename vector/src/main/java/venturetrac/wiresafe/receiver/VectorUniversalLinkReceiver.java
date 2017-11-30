@@ -116,6 +116,7 @@ public class VectorUniversalLinkReceiver extends BroadcastReceiver {
             Log.e(LOG_TAG, "## onReceive() Warning - Unable to proceed URL link: Session is null");
 
             // No user is logged => no session. Just forward request to the login activity
+//            TODO
             Intent intent = new Intent(aContext, LoginActivity.class);
             intent.putExtra(EXTRA_UNIVERSAL_LINK_URI, aIntent.getData());
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -169,6 +170,7 @@ public class VectorUniversalLinkReceiver extends BroadcastReceiver {
                         // Start the login activity and wait for BROADCAST_ACTION_UNIVERSAL_LINK_RESUME.
                         // Once the login process flow is complete, BROADCAST_ACTION_UNIVERSAL_LINK_RESUME is
                         // sent back to resume the URL link processing.
+                        //TODO
                         Intent intent = new Intent(aContext, LoginActivity.class);
                         intent.putExtra(EXTRA_UNIVERSAL_LINK_URI, aIntent.getData());
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

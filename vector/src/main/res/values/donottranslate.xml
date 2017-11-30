@@ -54,4 +54,6 @@
     <string name="check_your_internet_connection">Check your internet connection</string>
     <string name="request_not_granted">Request not granted</string>
     <string name="signout_operation_failed">Signout operation failed</string>
+    <string name="please_check_your_internet_connectivity_and_try_again">Please check your internet connectivity and try again!</string>
+    <string name="retry">Retry</string>
 </resources>

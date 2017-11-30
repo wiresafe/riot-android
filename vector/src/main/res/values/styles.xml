@@ -286,6 +286,8 @@
         <item name="colorAccent">?attr/editTextColor</item>
     </style>
 
+    <style name="FirebaseLoginAppTheme" parent="AppTheme.NoActionBar" />
+
     <style name="CountryPickerTheme" parent="AppTheme.NoActionBar">
         <item name="editTextColor">@android:color/white</item>
         <item name="android:editTextColor">@android:color/white</item>

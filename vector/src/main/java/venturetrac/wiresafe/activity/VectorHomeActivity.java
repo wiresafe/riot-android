@@ -66,6 +66,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -1809,7 +1810,19 @@ public class VectorHomeActivity extends RiotAppCompatActivity implements SearchV
                                         new DialogInterface.OnClickListener() {
                                             public void onClick(DialogInterface dialog, int id) {
                                                 VectorHomeActivity.this.showWaitingView();
-                                                if (null != mGoogleApiClient && mGoogleApiClient.isConnected())
+                                                AuthUI.getInstance()
+                                                        .signOut(VectorHomeActivity.this)
+                                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                            public void onComplete(@NonNull Task<Void> task) {
+                                                                if (task.isSuccessful()) {
+                                                                    CommonActivityUtils.logout(VectorHomeActivity.this);
+                                                                    FirebaseAuth.getInstance().signOut();
+                                                                } else
+                                                                    Toast.makeText(VectorHomeActivity.this, getString(R.string.signout_operation_failed), Toast.LENGTH_SHORT).show();
+                                                            }
+                                                        });
+
+                                                /*if (null != mGoogleApiClient && mGoogleApiClient.isConnected())
                                                     Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(new ResultCallback<Status>() {
                                                         @Override
                                                         public void onResult(@NonNull Status status) {
@@ -1821,7 +1834,17 @@ public class VectorHomeActivity extends RiotAppCompatActivity implements SearchV
                                                         }
                                                     });
                                                 else
-                                                    Toast.makeText(VectorHomeActivity.this, getString(R.string.signout_operation_failed), Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(VectorHomeActivity.this, getString(R.string.signout_operation_failed), Toast.LENGTH_SHORT).show();*/
+
+
+                                               /* AuthUI.getInstance()
+                                                        .delete(VectorHomeActivity.this)
+                                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                            @Override
+                                                            public void onComplete(@NonNull Task<Void> task) {
+                                                                // ...
+                                                            }
+                                                        });*/
 
                                             }
                                         })
