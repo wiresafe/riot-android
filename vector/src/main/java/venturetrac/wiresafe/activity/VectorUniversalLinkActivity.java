@@ -65,8 +65,10 @@ public class VectorUniversalLinkActivity extends RiotBaseActivity {
                 if (mailRegParams.containsKey(VectorRegistrationReceiver.KEY_MAIL_VALIDATION_NEXT_LINK) || (null == Matrix.getInstance(this).getDefaultSession())) {
                     // logout current session, before starting any mail validation
                     // to have the LoginActivity always in a "no credentials state".
-                    CommonActivityUtils.logout(this, false);
-                    intentAction = VectorRegistrationReceiver.BROADCAST_ACTION_REGISTRATION;
+                    if (false) {
+                        CommonActivityUtils.logout(this, false);
+                        intentAction = VectorRegistrationReceiver.BROADCAST_ACTION_REGISTRATION;
+                    }
                 } else {
                     intentAction = null;
                     // display a spinner while binding the email
@@ -76,8 +78,8 @@ public class VectorUniversalLinkActivity extends RiotBaseActivity {
             } else {
                 intentAction = VectorUniversalLinkReceiver.BROADCAST_ACTION_UNIVERSAL_LINK;
             }
-        } catch (Exception ex){
-            Log.e(LOG_TAG,"## onCreate(): Exception - Msg="+ex.getMessage());
+        } catch (Exception ex) {
+            Log.e(LOG_TAG, "## onCreate(): Exception - Msg=" + ex.getMessage());
         }
 
         if (null != intentAction) {
@@ -89,11 +91,12 @@ public class VectorUniversalLinkActivity extends RiotBaseActivity {
 
     /**
      * Email binding management
-     * @param uri the uri.
+     *
+     * @param uri        the uri.
      * @param aMapParams the parsed params
      */
     private void emailBinding(Uri uri, HashMap<String, String> aMapParams) {
-        Log.d(LOG_TAG,"## emailBinding()");
+        Log.d(LOG_TAG, "## emailBinding()");
 
         String ISUrl = uri.getScheme() + "://" + uri.getHost();
 

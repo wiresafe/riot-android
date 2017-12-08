@@ -16,7 +16,9 @@
 package venturetrac.wiresafe;
 
 import android.app.Activity;
+
 import org.matrix.androidsdk.util.Log;
+
 import android.widget.Toast;
 
 import org.matrix.androidsdk.MXSession;
@@ -99,7 +101,8 @@ public class ErrorListener implements ApiFailureCallback {
         Log.e(LOG_TAG, "Matrix error: " + e.errcode + " - " + e.error);
         // The access token was not recognized: log out
         if (MatrixError.UNKNOWN_TOKEN.equals(e.errcode)) {
-            CommonActivityUtils.logout(mActivity);
+            if (false)
+                CommonActivityUtils.logout(mActivity);
         }
     }
 

@@ -668,7 +668,6 @@ public class VectorSettingsPreferencesFragment extends PreferenceFragment implem
                                 public void onClick(DialogInterface dialog, int which) {
                                     dialog.dismiss();
                                     CommonActivityUtils.logout(getActivity(), true);
-
                                 }
                             })
                             .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {

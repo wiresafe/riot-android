@@ -1815,8 +1815,8 @@ public class VectorHomeActivity extends RiotAppCompatActivity implements SearchV
                                                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                                                             public void onComplete(@NonNull Task<Void> task) {
                                                                 if (task.isSuccessful()) {
-                                                                    CommonActivityUtils.logout(VectorHomeActivity.this);
                                                                     FirebaseAuth.getInstance().signOut();
+                                                                    CommonActivityUtils.logout(VectorHomeActivity.this);
                                                                 } else
                                                                     Toast.makeText(VectorHomeActivity.this, getString(R.string.signout_operation_failed), Toast.LENGTH_SHORT).show();
                                                             }

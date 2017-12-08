@@ -903,7 +903,8 @@ public class LoginActivity extends MXCActionBarActivity implements RegistrationM
             public void run() {
                 try {
                     // getDefaultSession could trigger an exception if the login data are corrupted
-                    CommonActivityUtils.logout(LoginActivity.this);
+                    if (false)
+                        CommonActivityUtils.logout(LoginActivity.this);
                 } catch (Exception e) {
                     Log.w(LOG_TAG, "## Exception: " + e.getMessage());
                 }

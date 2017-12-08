@@ -698,7 +698,8 @@ public class Matrix {
             public void onTokenCorrupted() {
                 if (null != VectorApp.getCurrentActivity()) {
                     Log.e(LOG_TAG, "## createSession() : onTokenCorrupted");
-                    CommonActivityUtils.logout(VectorApp.getCurrentActivity());
+                    if (false)
+                        CommonActivityUtils.logout(VectorApp.getCurrentActivity());
                 }
             }
 

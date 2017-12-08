@@ -412,7 +412,9 @@ public class CommonActivityUtils {
                 if (goToLoginPage) {
                     if (null != activity) {
                         // go to login page
-                        activity.startActivity(new Intent(activity, LoginActivity.class));
+                        Intent intent = new Intent(context, LoginActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        activity.startActivity(intent);
                         activity.finish();
                     } else {
                         Intent intent = new Intent(context, LoginActivity.class);
