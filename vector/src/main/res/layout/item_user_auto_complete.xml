@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:layout_marginLeft="6dp">
 
-        <venturetrac.wiresafe.view.VectorCircularImageView
+        <newventure.wiresafe.view.VectorCircularImageView
             android:id="@+id/item_user_auto_complete_avatar"
             android:layout_width="28dp"
             android:layout_height="28dp"

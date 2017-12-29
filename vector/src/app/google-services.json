@@ -8,12 +8,20 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1039382416339:android:315b6044e99ff08a",
+        "mobilesdk_app_id": "1:1039382416339:android:448c9b63161abc9c",
         "android_client_info": {
-          "package_name": "com.wiresafe.android"
+          "package_name": "im.vector.alpha"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "1039382416339-93jejj2375gm6rdl5hf4vgsk7eogentr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "im.vector.alpha",
+            "certificate_hash": "faf2c744bbde9b60005e12ee616bb8be859d4a73"
+          }
+        },
         {
           "client_id": "1039382416339-mptg19voo84i5mn7bbggq4k185h9pc8k.apps.googleusercontent.com",
           "client_type": 3
@@ -33,8 +41,20 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1039382416339-rfvf3i1urpnceikj14traf3mcje1qpb8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.riot.wiresafe.extension"
+              }
+            },
+            {
+              "client_id": "1039382416339-mptg19voo84i5mn7bbggq4k185h9pc8k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
@@ -43,12 +63,20 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1039382416339:android:448c9b63161abc9c",
+        "mobilesdk_app_id": "1:1039382416339:android:b97f990ed8056898",
         "android_client_info": {
-          "package_name": "im.vector.alpha"
+          "package_name": "newventure.wiresafe"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "1039382416339-229n671ohbp7taodi35qk45s8ng8d3g0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "newventure.wiresafe",
+            "certificate_hash": "faf2c744bbde9b60005e12ee616bb8be859d4a73"
+          }
+        },
         {
           "client_id": "1039382416339-mptg19voo84i5mn7bbggq4k185h9pc8k.apps.googleusercontent.com",
           "client_type": 3
@@ -68,8 +96,20 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1039382416339-rfvf3i1urpnceikj14traf3mcje1qpb8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.riot.wiresafe.extension"
+              }
+            },
+            {
+              "client_id": "1039382416339-mptg19voo84i5mn7bbggq4k185h9pc8k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

@@ -6,7 +6,7 @@ keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.2"
+    buildToolsVersion '27.0.2'
 
     packagingOptions {
         exclude 'META-INF/LICENSE'
@@ -90,7 +90,7 @@ android {
 
     productFlavors {
         app {
-            applicationId "im.vector.alpha"
+            applicationId "newventure.wiresafe"
             // use the version name
             versionCode rootProject.ext.versionCodeProp
             versionName rootProject.ext.versionNameProp
@@ -101,7 +101,7 @@ android {
         }
 
         appfdroid {
-            applicationId "im.vector.alpha"
+            applicationId "newventure.wiresafe"
             // use the version name
             versionCode rootProject.ext.versionCodeProp
             versionName rootProject.ext.versionNameProp

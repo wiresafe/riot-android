@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
 
     <!-- this section has no title in purpose -->
-    <venturetrac.wiresafe.preference.RoomAvatarPreference
+    <newventure.wiresafe.preference.RoomAvatarPreference
         android:key="roomPhotoAvatar"
         android:title="@string/room_settings_room_photo"/>
 
@@ -26,22 +26,22 @@
         android:entryValues="@array/tag_values" />
 
     <!-- mute/un mute room notifications-->
-    <venturetrac.wiresafe.preference.VectorSwitchPreference
+    <newventure.wiresafe.preference.VectorSwitchPreference
         android:key="muteNotificationsSwitch"
         android:title="@string/room_settings_mute_notifs" />
 
-    <venturetrac.wiresafe.preference.VectorCustomActionEditTextPreference
+    <newventure.wiresafe.preference.VectorCustomActionEditTextPreference
         android:title="@string/leave"
         android:key="roomLeave"/>
 
-    <venturetrac.wiresafe.preference.VectorDividerCategory />
+    <newventure.wiresafe.preference.VectorDividerCategory />
 
-    <venturetrac.wiresafe.preference.VectorPreferenceCategory
+    <newventure.wiresafe.preference.VectorPreferenceCategory
         android:key="prefCatAccessVisibility"
         android:title="@string/room_settings_category_access_visibility_title">
 
         <!-- indicate if the room name should listed in the room directory list -->
-        <venturetrac.wiresafe.preference.VectorSwitchPreference
+        <newventure.wiresafe.preference.VectorSwitchPreference
             android:key="roomNameListedInDirectorySwitch"
             android:title="@string/room_settings_directory_visibility" />
 
@@ -51,7 +51,7 @@
             android:title="@string/settings_room_privacy_label" /> -->
 
         <!-- room access rules (Who can access?) -->
-        <venturetrac.wiresafe.preference.VectorListPreference
+        <newventure.wiresafe.preference.VectorListPreference
             android:key="roomAccessRulesList"
             android:title="@string/room_settings_room_access_rules_pref_title"
             android:dialogTitle="@string/room_settings_room_access_rules_pref_dialog_title"
@@ -65,40 +65,40 @@
             android:dialogTitle="@string/room_settings_room_read_history_rules_pref_dialog_title"
             android:entries="@array/room_read_history_rules_entries"
             android:entryValues="@array/room_read_history_rules_values" />
-    </venturetrac.wiresafe.preference.VectorPreferenceCategory>
+    </newventure.wiresafe.preference.VectorPreferenceCategory>
 
-    <venturetrac.wiresafe.preference.VectorDividerCategory />
+    <newventure.wiresafe.preference.VectorDividerCategory />
 
-    <venturetrac.wiresafe.preference.VectorPreferenceCategory
+    <newventure.wiresafe.preference.VectorPreferenceCategory
         android:key="addresses"
         android:title="@string/room_settings_addresses_pref_title">
 
-    </venturetrac.wiresafe.preference.VectorPreferenceCategory>
+    </newventure.wiresafe.preference.VectorPreferenceCategory>
 
-    <venturetrac.wiresafe.preference.VectorDividerCategory
+    <newventure.wiresafe.preference.VectorDividerCategory
         android:key="banned_divider"
         android:title="banned_divider"/>
 
-    <venturetrac.wiresafe.preference.VectorPreferenceCategory
+    <newventure.wiresafe.preference.VectorPreferenceCategory
         android:key="banned"
         android:title="@string/room_settings_banned_users_title" >
-    </venturetrac.wiresafe.preference.VectorPreferenceCategory>
+    </newventure.wiresafe.preference.VectorPreferenceCategory>
 
-    <venturetrac.wiresafe.preference.VectorDividerCategory />
+    <newventure.wiresafe.preference.VectorDividerCategory />
 
-    <venturetrac.wiresafe.preference.VectorPreferenceCategory
+    <newventure.wiresafe.preference.VectorPreferenceCategory
         android:key="advanced"
         android:title="@string/room_settings_category_advanced_title">
 
-        <venturetrac.wiresafe.preference.VectorCustomActionEditTextPreference
+        <newventure.wiresafe.preference.VectorCustomActionEditTextPreference
             android:title="@string/room_settings_room_internal_id"
             android:key="roomInternalId"/>
 
-        <venturetrac.wiresafe.preference.VectorSwitchPreference
+        <newventure.wiresafe.preference.VectorSwitchPreference
             android:title="@string/room_settings_never_send_to_unverified_devices_title"
             android:summary="@string/room_settings_never_send_to_unverified_devices_summary"
             android:key="@string/room_settings_never_send_to_unverified_devices_title"/>
 
-    </venturetrac.wiresafe.preference.VectorPreferenceCategory>
+    </newventure.wiresafe.preference.VectorPreferenceCategory>
 
 </PreferenceScreen>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="venturetrac.wiresafe" xmlns:tools="http://schemas.android.com/tools" android:installLocation="auto">
+    package="newventure.wiresafe" xmlns:tools="http://schemas.android.com/tools" android:installLocation="auto">
 
     <application
         tools:replace="allowBackup,label"
         android:allowBackup="false"
-        android:name="venturetrac.wiresafe.VectorApp"
+        android:name="newventure.wiresafe.VectorApp"
         android:icon="@mipmap/ic_launcher"
         android:logo="@mipmap/ic_launcher"
         android:label="@string/riot_app_name"
@@ -31,7 +31,7 @@
 
         <!-- GCM components -->
         <service
-            android:name="venturetrac.wiresafe.gcm.MatrixGcmListenerService"
+            android:name="newventure.wiresafe.gcm.MatrixGcmListenerService"
             android:exported="false" >
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
@@ -39,7 +39,7 @@
         </service>
 
         <service
-            android:name="venturetrac.wiresafe.gcm.MatrixInstanceIDListenerService"
+            android:name="newventure.wiresafe.gcm.MatrixInstanceIDListenerService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>

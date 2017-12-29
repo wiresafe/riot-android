@@ -37,7 +37,7 @@
             android:indeterminate="true"
             android:visibility="gone" />
 
-        <venturetrac.wiresafe.view.VectorPendingCallView
+        <newventure.wiresafe.view.VectorPendingCallView
             android:id="@+id/listView_pending_callview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

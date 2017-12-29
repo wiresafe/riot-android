@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="venturetrac.wiresafe"
+    package="newventure.wiresafe"
     android:installLocation="auto">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -81,7 +81,7 @@
         android:required="false" />
 
     <application
-        android:name="venturetrac.wiresafe.VectorApp"
+        android:name="newventure.wiresafe.VectorApp"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/riot_app_name"
@@ -93,7 +93,7 @@
 
         <!-- activities list starts here -->
         <activity
-            android:name="venturetrac.wiresafe.activity.LoginActivity"
+            android:name="newventure.wiresafe.activity.LoginActivity"
             android:configChanges="orientation|screenSize"
             android:theme="@style/LoginAppTheme"
             android:windowSoftInputMode="adjustResize"
@@ -105,84 +105,84 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="venturetrac.wiresafe.activity.AccountCreationActivity"
+            android:name="newventure.wiresafe.activity.AccountCreationActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/create_account" />
         <activity
-            android:name="venturetrac.wiresafe.activity.AccountCreationCaptchaActivity"
+            android:name="newventure.wiresafe.activity.AccountCreationCaptchaActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/create_account" />
         <activity
-            android:name="venturetrac.wiresafe.activity.FallbackLoginActivity"
+            android:name="newventure.wiresafe.activity.FallbackLoginActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/login" />
         <activity
-            android:name="venturetrac.wiresafe.activity.SplashActivity"
+            android:name="newventure.wiresafe.activity.SplashActivity"
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="venturetrac.wiresafe.activity.VectorHomeActivity"
+            android:name="newventure.wiresafe.activity.VectorHomeActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/title_activity_home"
             android:theme="@style/HomeActivityTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="venturetrac.wiresafe.activity.HistoricalRoomsActivity"
+            android:name="newventure.wiresafe.activity.HistoricalRoomsActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/title_activity_historical"
-            android:parentActivityName="venturetrac.wiresafe.activity.VectorHomeActivity"
+            android:parentActivityName="newventure.wiresafe.activity.VectorHomeActivity"
             android:theme="@style/HomeActivityTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="venturetrac.wiresafe.activity.VectorRoomActivity"
+            android:name="newventure.wiresafe.activity.VectorRoomActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/title_activity_room"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
-            android:name="venturetrac.wiresafe.activity.VectorRoomCreationActivity"
+            android:name="newventure.wiresafe.activity.VectorRoomCreationActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/room_creation_title"
             android:launchMode="singleTop"
-            android:parentActivityName="venturetrac.wiresafe.activity.VectorHomeActivity"
+            android:parentActivityName="newventure.wiresafe.activity.VectorHomeActivity"
             android:windowSoftInputMode="adjustResize">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="venturetrac.wiresafe.activity.VectorRoomActivity" />
+                android:value="newventure.wiresafe.activity.VectorRoomActivity" />
         </activity>
         <activity
-            android:name="venturetrac.wiresafe.activity.VectorRoomDetailsActivity"
+            android:name="newventure.wiresafe.activity.VectorRoomDetailsActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/room_details_title"
             android:launchMode="singleTop"
-            android:parentActivityName="venturetrac.wiresafe.activity.VectorRoomActivity"
+            android:parentActivityName="newventure.wiresafe.activity.VectorRoomActivity"
             android:windowSoftInputMode="adjustResize">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="venturetrac.wiresafe.activity.VectorRoomActivity" />
+                android:value="newventure.wiresafe.activity.VectorRoomActivity" />
         </activity>
         <activity
-            android:name="venturetrac.wiresafe.activity.VectorSettingsActivity"
+            android:name="newventure.wiresafe.activity.VectorSettingsActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/title_activity_settings"
-            android:parentActivityName="venturetrac.wiresafe.activity.VectorHomeActivity"
+            android:parentActivityName="newventure.wiresafe.activity.VectorHomeActivity"
             android:windowSoftInputMode="adjustResize">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="venturetrac.wiresafe.activity.VectorHomeActivity" />
+                android:value="newventure.wiresafe.activity.VectorHomeActivity" />
         </activity>
         <activity
-            android:name="venturetrac.wiresafe.activity.VectorMemberDetailsActivity"
+            android:name="newventure.wiresafe.activity.VectorMemberDetailsActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/title_activity_member_details"
-            android:parentActivityName="venturetrac.wiresafe.activity.VectorRoomActivity"
+            android:parentActivityName="newventure.wiresafe.activity.VectorRoomActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="venturetrac.wiresafe.activity.VectorRoomActivity" />
+                android:value="newventure.wiresafe.activity.VectorRoomActivity" />
         </activity>
         <activity
-            android:name="venturetrac.wiresafe.activity.LockScreenActivity"
+            android:name="newventure.wiresafe.activity.LockScreenActivity"
             android:clearTaskOnLaunch="true"
             android:configChanges="orientation|screenSize"
             android:excludeFromRecents="true"
@@ -190,7 +190,7 @@
             android:taskAffinity=""
             android:theme="@android:style/Theme.Holo.Light.Dialog" />
         <activity
-            android:name="venturetrac.wiresafe.activity.JoinScreenActivity"
+            android:name="newventure.wiresafe.activity.JoinScreenActivity"
             android:clearTaskOnLaunch="true"
             android:configChanges="orientation|screenSize"
             android:excludeFromRecents="true"
@@ -198,7 +198,7 @@
             android:taskAffinity=""
             android:theme="@android:style/Theme.Holo.Light.Dialog" />
         <activity
-            android:name="venturetrac.wiresafe.activity.InComingCallActivity"
+            android:name="newventure.wiresafe.activity.InComingCallActivity"
             android:clearTaskOnLaunch="true"
             android:configChanges="orientation|screenSize"
             android:excludeFromRecents="true"
@@ -206,80 +206,80 @@
             android:taskAffinity=""
             android:theme="@style/CallAppTheme" />
         <activity
-            android:name="venturetrac.wiresafe.activity.VectorMediasViewerActivity"
+            android:name="newventure.wiresafe.activity.VectorMediasViewerActivity"
             android:configChanges="orientation|screenSize"
             android:label="a filename"
             android:launchMode="singleTop"
-            android:parentActivityName="venturetrac.wiresafe.activity.VectorRoomActivity"
+            android:parentActivityName="newventure.wiresafe.activity.VectorRoomActivity"
             android:windowSoftInputMode="adjustResize">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="venturetrac.wiresafe.activity.VectorRoomActivity" />
+                android:value="newventure.wiresafe.activity.VectorRoomActivity" />
         </activity>
         <activity
-            android:name="venturetrac.wiresafe.activity.VectorCallViewActivity"
+            android:name="newventure.wiresafe.activity.VectorCallViewActivity"
             android:configChanges="orientation|screenSize"
             android:theme="@style/CallActivityTheme" />
         <activity
-            android:name="venturetrac.wiresafe.activity.JitsiCallActivity"
+            android:name="newventure.wiresafe.activity.JitsiCallActivity"
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar.FullScreen" />
         <activity
-            android:name="venturetrac.wiresafe.activity.WidgetActivity"
+            android:name="newventure.wiresafe.activity.WidgetActivity"
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar.FullScreen" />
         <activity
-            android:name="venturetrac.wiresafe.activity.IntegrationManagerActivity"
+            android:name="newventure.wiresafe.activity.IntegrationManagerActivity"
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar.FullScreen" />
         <activity
-            android:name="venturetrac.wiresafe.activity.VectorMediasPickerActivity"
+            android:name="newventure.wiresafe.activity.VectorMediasPickerActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/media_picker_both_capture_title"
             android:launchMode="singleTop"
-            android:parentActivityName="venturetrac.wiresafe.activity.VectorRoomActivity"
+            android:parentActivityName="newventure.wiresafe.activity.VectorRoomActivity"
             android:theme="@style/AppTheme.NoActionBar.FullScreen"
             android:windowSoftInputMode="stateHidden">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="venturetrac.wiresafe.activity.VectorHomeActivity" />
+                android:value="newventure.wiresafe.activity.VectorHomeActivity" />
         </activity>
         <activity
-            android:name="venturetrac.wiresafe.activity.VectorPublicRoomsActivity"
+            android:name="newventure.wiresafe.activity.VectorPublicRoomsActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/directory_title"
             android:launchMode="singleTop"
-            android:parentActivityName="venturetrac.wiresafe.activity.VectorUnifiedSearchActivity"
+            android:parentActivityName="newventure.wiresafe.activity.VectorUnifiedSearchActivity"
             android:windowSoftInputMode="stateHidden">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="venturetrac.wiresafe.activity.VectorUnifiedSearchActivity" />
+                android:value="newventure.wiresafe.activity.VectorUnifiedSearchActivity" />
         </activity>
         <activity
-            android:name="venturetrac.wiresafe.activity.VectorUnifiedSearchActivity"
+            android:name="newventure.wiresafe.activity.VectorUnifiedSearchActivity"
             android:configChanges="orientation|screenSize"
             android:label="Vector searches"
             android:launchMode="singleTop"
-            android:parentActivityName="venturetrac.wiresafe.activity.VectorHomeActivity"
+            android:parentActivityName="newventure.wiresafe.activity.VectorHomeActivity"
             android:theme="@style/SearchesAppTheme"
             android:windowSoftInputMode="adjustResize">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="venturetrac.wiresafe.activity.VectorHomeActivity" />
+                android:value="newventure.wiresafe.activity.VectorHomeActivity" />
         </activity>
         <activity
-            android:name="venturetrac.wiresafe.activity.VectorRoomInviteMembersActivity"
+            android:name="newventure.wiresafe.activity.VectorRoomInviteMembersActivity"
             android:configChanges="orientation|screenSize"
             android:label="Vector searches"
             android:launchMode="singleTop"
-            android:parentActivityName="venturetrac.wiresafe.activity.VectorRoomDetailsActivity"
+            android:parentActivityName="newventure.wiresafe.activity.VectorRoomDetailsActivity"
             android:theme="@style/SearchesAppTheme"
             android:windowSoftInputMode="adjustResize">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="venturetrac.wiresafe.activity.VectorHomeActivity" />
+                android:value="newventure.wiresafe.activity.VectorHomeActivity" />
         </activity>
-        <activity android:name="venturetrac.wiresafe.activity.VectorUniversalLinkActivity">
+        <activity android:name="newventure.wiresafe.activity.VectorUniversalLinkActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -324,37 +324,37 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="venturetrac.wiresafe.activity.VectorFakeRoomPreviewActivity"
+            android:name="newventure.wiresafe.activity.VectorFakeRoomPreviewActivity"
             android:theme="@android:style/Theme.NoDisplay" />
         <activity
-            android:name="venturetrac.wiresafe.activity.PhoneNumberAdditionActivity"
+            android:name="newventure.wiresafe.activity.PhoneNumberAdditionActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/settings_add_phone_number"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="venturetrac.wiresafe.activity.CountryPickerActivity"
+            android:name="newventure.wiresafe.activity.CountryPickerActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/settings_select_country"
             android:theme="@style/CountryPickerTheme" />
         <activity
-            android:name="venturetrac.wiresafe.activity.LanguagePickerActivity"
+            android:name="newventure.wiresafe.activity.LanguagePickerActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/settings_select_language"
             android:theme="@style/CountryPickerTheme" />
         <activity
-            android:name="venturetrac.wiresafe.activity.RoomDirectoryPickerActivity"
+            android:name="newventure.wiresafe.activity.RoomDirectoryPickerActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/select_room_directory"
             android:theme="@style/DirectoryPickerTheme" />
         <activity
-            android:name="venturetrac.wiresafe.activity.PhoneNumberVerificationActivity"
+            android:name="newventure.wiresafe.activity.PhoneNumberVerificationActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/settings_phone_number_verification"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <!-- broadcast receiver -->
         <receiver
-            android:name="venturetrac.wiresafe.receiver.VectorUniversalLinkReceiver"
+            android:name="newventure.wiresafe.receiver.VectorUniversalLinkReceiver"
             android:exported="false">
             <intent-filter>
                 <action android:name="im.vector.receiver.UNIVERSAL_LINK" />
@@ -390,7 +390,7 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name="venturetrac.wiresafe.receiver.VectorRegistrationReceiver"
+            android:name="newventure.wiresafe.receiver.VectorRegistrationReceiver"
             android:exported="false">
             <intent-filter>
                 <action android:name="im.vector.receiver.BROADCAST_ACTION_REGISTRATION" />
@@ -402,17 +402,17 @@
                 <data android:pathPrefix="/_matrix/" />
             </intent-filter>
         </receiver>
-        <receiver android:name="venturetrac.wiresafe.receiver.VectorBootReceiver">
+        <receiver android:name="newventure.wiresafe.receiver.VectorBootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.ACTION_USER_UNLOCKED" />
             </intent-filter>
         </receiver>
-        <receiver android:name="venturetrac.wiresafe.receiver.DismissNotificationReceiver" />
+        <receiver android:name="newventure.wiresafe.receiver.DismissNotificationReceiver" />
 
         <!-- Shared items -->
         <activity
-            android:name="venturetrac.wiresafe.activity.VectorSharedFilesActivity"
+            android:name="newventure.wiresafe.activity.VectorSharedFilesActivity"
             android:theme="@android:style/Theme.NoDisplay">
             <intent-filter>
                  
@@ -446,11 +446,11 @@
             </intent-filter>
         </activity>
 
-        <service android:name="venturetrac.wiresafe.services.EventStreamService" />
+        <service android:name="newventure.wiresafe.services.EventStreamService" />
 
         <provider
-            android:name="venturetrac.wiresafe.db.VectorContentProvider"
-            android:authorities="venturetrac.wiresafe.VectorApp.provider"
+            android:name="newventure.wiresafe.db.VectorContentProvider"
+            android:authorities="newventure.wiresafe.VectorApp.provider"
             android:exported="true" />
     </application>
 

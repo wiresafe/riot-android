@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package venturetrac.wiresafe.ga;
+package newventure.wiresafe.ga;
 
 import android.content.Context;
 import android.os.Handler;
@@ -22,7 +22,7 @@ import android.provider.Settings;
 
 import org.matrix.androidsdk.util.Log;
 
-import venturetrac.wiresafe.VectorApp;
+import newventure.wiresafe.VectorApp;
 
 public class GAHelper {
 
